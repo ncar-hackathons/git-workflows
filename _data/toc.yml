@@ -26,8 +26,12 @@
   not_numbered: true
   expand_sections: true
   sections:
-  - title: ...
+  - title: Repositories
     url: /git/02_repositories
+  - title: Branches
+    url: /git/03_branches
+  - title: Conflicts
+    url: /git/04_conflicts
 
 - title: GitHub
   url: /github/01_what_is_github
