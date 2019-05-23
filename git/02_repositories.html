@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>...</title>
-  <meta name="description" content="&lt;img align=”right” height=40 src=”images/git-logo.png”&gt;">
+  <title>Repositories</title>
+  <meta name="description" content="&lt;img align=”right” height=40 src=”../images/git-logo.png”&gt;">
 
   <link rel="canonical" href="https://ncar-hackathons.github.io/git-workflows/git/02_repositories.html">
   <link rel="alternate" type="application/rss+xml" title="Git & GitHub Workflows" href="https://ncar-hackathons.github.io/git-workflows/feed.xml">
 
   <meta property="og:url"         content="https://ncar-hackathons.github.io/git-workflows/git/02_repositories.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="..." />
-<meta property="og:description" content="&lt;img align=”right” height=40 src=”images/git-logo.png”&gt;" />
+<meta property="og:title"       content="Repositories" />
+<meta property="og:description" content="&lt;img align=”right” height=40 src=”../images/git-logo.png”&gt;" />
 <meta property="og:image"       content="" />
 
 
@@ -27,13 +27,13 @@
   "mainEntityOfPage":
     "https://ncar-hackathons.github.io/git-workflows/git/02_repositories.html",
   "headline":
-    "...",
+    "Repositories",
   "datePublished":
-    "2019-05-23T15:53:07+00:00",
+    "2019-05-23T18:12:45+00:00",
   "dateModified":
-    "2019-05-23T15:53:07+00:00",
+    "2019-05-23T18:12:45+00:00",
   "description":
-    "&lt;img align=”right” height=40 src=”images/git-logo.png”&gt;",
+    "&lt;img align=”right” height=40 src=”../images/git-logo.png”&gt;",
   "author": {
     "@type": "Person",
     "name": "The XDev Team"
@@ -188,7 +188,7 @@ initFunction(addThebelabButtonToCodeCells);
         theme: "abcdef"
       },
       kernelOptions: {
-        name: 'python3',
+        name: 'bash',
       }
     }
 </script>
@@ -762,7 +762,41 @@ initFunction(initQuery);
                   href="/git-workflows/git/02_repositories.html"
                 >
                   
-                  ...
+                  Repositories
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/git-workflows/git/03_branches.html"
+                >
+                  
+                  Branches
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/git-workflows/git/04_conflicts.html"
+                >
+                  
+                  Conflicts
                 </a>
 
                 
@@ -859,34 +893,729 @@ initFunction(initQuery);
 </div>
 
             
+<div class="buttons">
+<a href="/git-workflows/content/git/02_repositories.ipynb" download>
+<button id="interact-button-download" class="interact-button">Download</button>
+</a>
+
+
+<button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+
+
+
+
+
+
+
+
+
+
+<a href="https://binder.pangeo.io/v2/gh/ncar-hackathons/git-workflows/master?urlpath=lab/tree/content%2Fgit%2F02_repositories.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/git-workflows/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+
+
+
+</div>
+
 
             <div class="c-textbook__content">
-              <p>&lt;img align=”right” height=40 src=”images/git-logo.png”&gt;</p>
+              <p>&lt;img align=”right” height=40 src=”../images/git-logo.png”&gt;</p>
 
-<h1 id="what-is-git">What is Git?</h1>
+<h1 id="repositories">Repositories</h1>
 
-<p>First and foremost, Git is a Version Control System (VCS).  That is, it is something that
-tracks <em>changes</em> in files (or directory structures) incrementally.  The files (and directories)
-that get tracked are contained in a <em>repository</em>, and each change that you <em>commit</em> to the 
-repository gets saved, allowing you to go back to a previous state of the files in your
-repository.  This is the basic definition of a VCS.</p>
+<p>As we’ve already mentioned, <em>repositories</em> are the containers for your work, the work
+you want <em>tracked</em> by Git.  Let’s create some work and see what a <em>repository</em> is,
+in practice.</p>
 
-<p>Git, specifically, is a <em>distributed</em> VCS, as opposed to a <em>centralized</em> VCS.  What the
-difference?  A centralized VCS is typified by a <em>single</em>, <em>central</em> <em>server</em> that hosts your
-repository.  With a centralized VCS, changes made by one person on their personal computer
-(for example) must be <em>pushed</em> to the central server in order to be saved in the repository.
-Hence, there is always one, and only one, <em>true</em> repository, which is sitting on the server.</p>
+<h2 id="creating-a-sample-project">Creating a sample project</h2>
 
-<p>Distributed VCSes, on the other hand, don’t have a central server.  That means, as in the
-case of Git, that changes made by one person on their personal computer get saved to <em>their
-own copy</em> of the “true” repository.  …But then which repository is the “true” repository?
-If there are multiple copies of the same repository floating around the interwebs, which one
-is the one that can be <em>trusted</em>?  Well…  They <em>all</em> can be trusted, because each copy
-of the repository is a self-consistent, stand-alone repository in its own right.  And you can
-always bring multiple copies of the same repository together by <em>merging</em> them.</p>
+<p>Let’s go to a safe place where we can practice creating a Git repository.</p>
 
-<p>We’ll talk a little about what is Git and how to use it in the following examples.  I encourage
-you to walk through these steps on your own.</p>
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span>
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<p>(If we have already run this notebook before, let’s delete the old project and start over…)</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">[</span> <span class="nt">-d</span> <span class="s2">"my_project"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span>rm <span class="nt">-rf</span> my_project
+<span class="k">fi</span>
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<p>Now, let’s create a new directory called <code class="highlighter-rouge">my_project</code> and then add a new text file to it.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir my_project
+<span class="nb">cd </span>my_project
+<span class="nb">echo</span> <span class="s2">"This is some text."</span> <span class="o">&gt;</span> file1.txt
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<p>Just to be sure we know what we’ve done, let’s see what directory we are currently in.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">pwd</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/kevin/my_project
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>and then let’s verify that we created the new <code class="highlighter-rouge">file1.txt</code>.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-a</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[34m.[39;49m[0m         [1m[34m..[39;49m[0m        file1.txt
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>This will be our sample “project.”</p>
+
+<h2 id="get-ready-for-git">Get ready for Git</h2>
+
+<p>Before you use Git for the first time, you should make sure it is installed on your system.  We will do so by trying to check the version of Git installed.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nt">--version</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git version 2.20.1 (Apple Git-117)
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Next, you should check that your name and email are known by git, so that it can identify you as the author of changes that you commit to the repository.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> <span class="nt">--get</span> user.name
+git config <span class="nt">--global</span> <span class="nt">--get</span> user.email
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Kevin Paul
+kpaul@ucar.edu
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>If you don’t see 2 lines of text above, or one of the lines is empty, then either your name or email has not been set.  You should set it so that Git can identify you as author of your commits.</p>
+
+<p>To set these parameters, execute the following code (with the appropriate changes) in the empty cell below:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"Your Name"</span>
+git config <span class="nt">--global</span> user.email you@domain.example.com
+</code></pre></div></div>
+
+<h2 id="turn-your-directory-into-a-repository">Turn your directory into a repository</h2>
+
+<p>Now, we can turn on <em>version-control</em> (or enable <em>tracking</em>) in our project directory by converting our project directory in a <em>repository</em>.  With Git, we do that with the following.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init <span class="nb">.</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Initialized empty Git repository in /Users/kevin/my_project/.git/
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now, notice that a new sub-directory called <code class="highlighter-rouge">.git</code> has been created in your project directory.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-a</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[34m.[39;49m[0m         [1m[34m..[39;49m[0m        [1m[34m.git[39;49m[0m      file1.txt
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>This new directory contains the <em>tracked history</em> of your Git repository.  …And yes, your project directory has now become a Git repository!</p>
+
+<p>However, even though there is a file in your project directory, the file has not been added to your repository.  You have to do that explicitly.  That is, you can have files or directories in your directory that are not <em>tracked</em> by Git.  In fact, that is the default.  You need to explicitly add these files (or changes to files) to Git.</p>
+
+<p>Let’s look at the status of our new Git repository:</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+	[31mfile1.txt[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>This is a great command!  It tells you <em>a lot</em>!  So, use it frequently!  Let’s see what it tells us:</p>
+
+<ol>
+  <li>
+    <p>It tells us what <em>branch</em> we are on in our repository.  …What’s a <em>branch</em>?  We’ll get to that in a bit, but for now, think of all of the changes made in your repository being saved to a single, <em>linear</em> history.  And we call that <em>main</em> history the <em>master branch</em>.</p>
+  </li>
+  <li>
+    <p>It tells you where you are in the history.  Currently, there have been <em>no changes</em> committed to your Git history.  (“No commits yet”)</p>
+  </li>
+  <li>
+    <p>It tells you that there are untracked files that you haven’t added to your Git repository, and it tells you which files are untracked.</p>
+  </li>
+  <li>
+    <p>It gives you helpful hints about what to do next.  In this case, it tells you to add the untracked files to your Git repository.</p>
+  </li>
+</ol>
+
+<p>So, let’s add our new file to the repository.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file1.txt
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<p>Great!  We’re rolling now!</p>
+
+<p>Let’s check the status again to see how awesome we are!</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached &lt;file&gt;..." to unstage)
+
+	[32mnew file:   file1.txt[m
+
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Hmm.  Ok.  Now the status tells us that we’ve added the file to our repository (i.e., it is being tracked), but now it needs to be <em>committed</em>?</p>
+
+<p>Yes.  You’ve <em>marked</em> the file <code class="highlighter-rouge">file1.txt</code> to be tracked, and now you need to actually commit the <em>changes</em> to the repository (i.e., the creation of the file and its contents).</p>
+
+<p>This is how Git works for <em>everything</em>.  What you’ve just done, in Git terminology, is that you’ve <em>staged</em> changes to be added to your repository by using <code class="highlighter-rouge">git add</code>.  However, they don’t actually get added to the repository until you actually <em>commit</em> them.</p>
+
+<p><strong>Note:</strong> The status message also tells you that you can <em>unstage</em> your new changes by using <code class="highlighter-rouge">git rm --cached file1.txt</code>.  That will mark your <code class="highlighter-rouge">file1.txt</code> file as <em>not</em> to be tracked.</p>
+
+<p>So, let’s commit our staged changes.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Adding file1"</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master (root-commit) d4b13f1] Adding file1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>And, again with the status…</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+nothing to commit, working tree clean
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now everything in our project directory has been added to our repository.</p>
+
+<p><strong>Note:</strong> Above, we used <code class="highlighter-rouge">git commit ... -m "Commit message"</code> syntax.  You do not need to use the <code class="highlighter-rouge">-m</code> option.  If you leave this option off (along with the commit message), then Git will open your selected text editor indicated by the <code class="highlighter-rouge">core.editor</code> config option.  You can set the editor that you want to use with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> core.editor <span class="o">[</span>vi | vim | emacs | nano | ...] <span class="c"># Choose your editor!</span>
+</code></pre></div></div>
+
+<h2 id="adding-changes">Adding changes</h2>
+
+<p>Obviously, the point of using a VCS like Git, though, is that it tracks changes.  Not just “saves files.”  So, we need to make some changes in our repository, stage those changes, and then commit them to the repository.</p>
+
+<p>Let’s make a couple changes and stage them for addition to the repository.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">""</span> <span class="o">&gt;&gt;</span> file1.txt
+<span class="nb">echo</span> <span class="s2">"And here's some more text."</span> <span class="o">&gt;&gt;</span> file1.txt
+<span class="nb">cat </span>file1.txt
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is some text.
+
+And here's some more text.
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+	[31mmodified:   file1.txt[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now, the status tells us that <code class="highlighter-rouge">file1.txt</code> has been modified.  And you follow the same procedure as before to stage the changes.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file1.txt
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+	[32mmodified:   file1.txt[m
+
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Again, we need to <em>commit</em> these changes to the repository in order to save them.</p>
+
+<p>But we’re not going to do that just yet.  Let’s create another file and stage it for addition to the repository.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"This is a new file."</span> <span class="o">&gt;</span> file2.txt
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file2.txt
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+	[32mmodified:   file1.txt[m
+	[32mnew file:   file2.txt[m
+
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now, you can see that we have 2 changes that are staged.  And we can commit <em>both</em> of these changes with a single commit, like so:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Modifying file1 and adding file2."</span>
+</code></pre></div></div>
+
+<p>But this is actually <em>bad practice</em>.  Okay, nobody is going to punish you for doing this, but it is generally considered good practice to give each <em>independent</em> change its own commit.  If the changes that I made to <code class="highlighter-rouge">file1.txt</code> were related to the addition of <code class="highlighter-rouge">file2.txt</code>, then I would commit them both with one commit.  And, I probably would use a different commit message referring to the “higher-level thing” that I was trying to accomplish.  But, in this case, the two changes are independent, so we <em>should</em> commit them with independent commits.</p>
+
+<p><strong>Note:</strong> A good sign of independent changes is the use of “and” in your commit message.  Look for that and stop yourself if you see yourself doing it!</p>
+
+<p>…And, interestingly, we can commit them in any order we see fit.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit file2.txt <span class="nt">-m</span> <span class="s2">"Adding file2."</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master 8249fc8] Adding file2.
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+	[32mmodified:   file1.txt[m
+
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit file1.txt <span class="nt">-m</span> <span class="s2">"Modifying file1."</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master cda011c] Modifying file1.
+ 1 file changed, 2 insertions(+)
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+nothing to commit, working tree clean
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>And that’s it.  Even though we actually performed the changes in a different order, we committed them in the order we chose.  They were independent changes, so it didn’t matter.</p>
+
+<h2 id="looking-at-the-history">Looking at the history</h2>
+
+<p>All of the changes that you’ve committed to your repository can be listed with the <code class="highlighter-rouge">git log</code> command.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mcommit cda011c5f045d96ec326b9ba5ea23285000908c9[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m
+Author: Kevin Paul &lt;kpaul@ucar.edu&gt;
+Date:   Thu May 23 11:48:28 2019 -0600
+
+    Modifying file1.
+
+[33mcommit 8249fc8007785eade8ffe06f5e3b936df9c19362[m
+Author: Kevin Paul &lt;kpaul@ucar.edu&gt;
+Date:   Thu May 23 11:48:27 2019 -0600
+
+    Adding file2.
+
+[33mcommit d4b13f1660127b17262655d27410cb32186e5b80[m
+Author: Kevin Paul &lt;kpaul@ucar.edu&gt;
+Date:   Thu May 23 11:48:20 2019 -0600
+
+    Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>And you can see that the latest commit is listed first, and the rest listed in reverse chronological order.  The random characters following the <code class="highlighter-rouge">commit</code> text are the <em>unique hash</em> identifying the commit.  You can specify commits using this <em>hash</em> string, or just the first characters of the hash that uniquely identify it.</p>
+
+<p>Also, under each commit’s information (Author, Date) it lists the commit message.</p>
+
+<p>If the history gets long, it can be nice to print the history in a more “dense” format.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--oneline</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mcda011c[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Modifying file1.
+[33m8249fc8[m Adding file2.
+[33md4b13f1[m Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>You can also get just the history of a particular file (or directory) in your repository.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log file1.txt
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mcommit cda011c5f045d96ec326b9ba5ea23285000908c9[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m
+Author: Kevin Paul &lt;kpaul@ucar.edu&gt;
+Date:   Thu May 23 11:48:28 2019 -0600
+
+    Modifying file1.
+
+[33mcommit d4b13f1660127b17262655d27410cb32186e5b80[m
+Author: Kevin Paul &lt;kpaul@ucar.edu&gt;
+Date:   Thu May 23 11:48:20 2019 -0600
+
+    Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>There are <em>lots</em> of ways of using <code class="highlighter-rouge">git log</code> and I recommend looking around online or in the help for tips.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--help</span>
+</code></pre></div></div>
+
+<h2 id="rewinding-to-the-past">Rewinding to the past</h2>
+
+<p>We can “rewind” our repository back to any point in the history.  To do this, we just look at the commit hash and do a <code class="highlighter-rouge">git checkout</code>.</p>
+
+<p>Find the commit hash for the commit with the message <code class="highlighter-rouge">Adding file1</code>.  (We’ll use a neat feature of <code class="highlighter-rouge">git log</code> to do this for us.)</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--all</span> <span class="nt">--grep</span><span class="o">=</span><span class="s1">'Adding file1'</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mcommit d4b13f1660127b17262655d27410cb32186e5b80[m
+Author: Kevin Paul &lt;kpaul@ucar.edu&gt;
+Date:   Thu May 23 11:48:20 2019 -0600
+
+    Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now, select the 1st 6 characters from the commit hash and use it in the <code class="highlighter-rouge">git checkout</code> command below:</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout d4b13f1
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Note: checking out 'd4b13f1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b &lt;new-branch-name&gt;
+
+HEAD is now at d4b13f1 Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-a</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[34m.[39;49m[0m         [1m[34m..[39;49m[0m        [1m[34m.git[39;49m[0m      file1.txt
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>file1.txt
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is some text.
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>And now we are back to the point in our repository after we first created <code class="highlighter-rouge">file1.txt</code>!</p>
+
+<p>Note that after the <code class="highlighter-rouge">checkout</code>, we received a message saying we are in “detached HEAD” state.  This means that we cannot make and commits at this point in the history.  (In other words, we cannot <em>simple</em> insert commits into the middle of an existing history.  We can only add them at the end.)</p>
+
+<p><strong>Note:</strong> Actually, Git <em>does</em> let you insert commits, but it is very complicated and beyond the scope of this tutorial.</p>
+
+<p>To get back to the present (i.e., the “HEAD”) we do:</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Previous HEAD position was d4b13f1 Adding file1
+Switched to branch 'master'
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+nothing to commit, working tree clean
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-a</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[34m.[39;49m[0m         [1m[34m..[39;49m[0m        [1m[34m.git[39;49m[0m      file1.txt file2.txt
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
 
               <nav class="c-page__nav">
   
@@ -898,8 +1627,8 @@ you to walk through these steps on your own.</p>
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/git-workflows/github/01_what_is_github">
-      GitHub <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/git-workflows/git/03_branches">
+      Branches <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>

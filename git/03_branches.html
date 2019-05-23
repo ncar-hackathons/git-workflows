@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Git</title>
-  <meta name="description" content="&lt;img align=”right” height=40 src=”images/git-logo.png”&gt;">
+  <title>Branches</title>
+  <meta name="description" content="Branches">
 
-  <link rel="canonical" href="https://ncar-hackathons.github.io/git-workflows/git/01_what_is_git.html">
+  <link rel="canonical" href="https://ncar-hackathons.github.io/git-workflows/git/03_branches.html">
   <link rel="alternate" type="application/rss+xml" title="Git & GitHub Workflows" href="https://ncar-hackathons.github.io/git-workflows/feed.xml">
 
-  <meta property="og:url"         content="https://ncar-hackathons.github.io/git-workflows/git/01_what_is_git.html" />
+  <meta property="og:url"         content="https://ncar-hackathons.github.io/git-workflows/git/03_branches.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Git" />
-<meta property="og:description" content="&lt;img align=”right” height=40 src=”images/git-logo.png”&gt;" />
+<meta property="og:title"       content="Branches" />
+<meta property="og:description" content="Branches" />
 <meta property="og:image"       content="" />
 
 
@@ -25,15 +25,15 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://ncar-hackathons.github.io/git-workflows/git/01_what_is_git.html",
+    "https://ncar-hackathons.github.io/git-workflows/git/03_branches.html",
   "headline":
-    "Git",
+    "Branches",
   "datePublished":
     "2019-05-23T18:12:45+00:00",
   "dateModified":
     "2019-05-23T18:12:45+00:00",
   "description":
-    "&lt;img align=”right” height=40 src=”images/git-logo.png”&gt;",
+    "Branches",
   "author": {
     "@type": "Person",
     "name": "The XDev Team"
@@ -188,7 +188,7 @@ initFunction(addThebelabButtonToCodeCells);
         theme: "abcdef"
       },
       kernelOptions: {
-        name: 'python3',
+        name: 'bash',
       }
     }
 </script>
@@ -736,7 +736,7 @@ initFunction(initQuery);
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/git-workflows/git/01_what_is_git.html"
         >
           
@@ -775,7 +775,7 @@ initFunction(initQuery);
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/git-workflows/git/03_branches.html"
                 >
                   
@@ -893,47 +893,485 @@ initFunction(initQuery);
 </div>
 
             
+<div class="buttons">
+<a href="/git-workflows/content/git/03_branches.ipynb" download>
+<button id="interact-button-download" class="interact-button">Download</button>
+</a>
+
+
+<button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+
+
+
+
+
+
+
+
+
+
+<a href="https://binder.pangeo.io/v2/gh/ncar-hackathons/git-workflows/master?urlpath=lab/tree/content%2Fgit%2F03_branches.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/git-workflows/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+
+
+
+</div>
+
 
             <div class="c-textbook__content">
-              <p>&lt;img align=”right” height=40 src=”images/git-logo.png”&gt;</p>
+              <h1 id="branches">Branches</h1>
 
-<h1 id="what-is-git">What is Git?</h1>
+<p>As promised, I said I would get back to the cryptic comment in the <code class="highlighter-rouge">git status</code> saying <code class="highlighter-rouge">On branch master</code>.  Well, here’s the point where I deliver on my promise.</p>
 
-<p>First and foremost, Git is a Version Control System (VCS).  That is, it is something that
-tracks <em>changes</em> in files (or directory structures) incrementally.  The files (and directories)
-that get tracked are contained in a <em>repository</em>, and each change that you <em>commit</em> to the 
-repository gets saved, allowing you to go back to a previous state of the files in your
-repository.  This is the basic definition of a VCS.</p>
+<p>Your repository can save multiple histories.  Like alternate timelines from some episode of Star Trek, you can store different sequences of changes in different branches.</p>
 
-<p>Git, specifically, is a <em>distributed</em> VCS, as opposed to a <em>centralized</em> VCS.  What the
-difference?  A centralized VCS is typified by a <em>single</em>, <em>central</em> <em>server</em> that hosts your
-repository.  With a centralized VCS, changes made by one person on their personal computer
-(for example) must be <em>pushed</em> to the central server in order to be saved in the repository.
-Hence, there is always one, and only one, <em>true</em> repository, which is sitting on the server.</p>
+<p>If you haven’t run the previous Repositories section, then let’s get back to our sample project repository.</p>
 
-<p>Distributed VCSes, on the other hand, don’t have a central server.  That means, as in the
-case of Git, that changes made by one person on their personal computer get saved to <em>their
-own copy</em> of the “true” repository.  …But then which repository is the “true” repository?
-If there are multiple copies of the same repository floating around the interwebs, which one
-is the one that can be <em>trusted</em>?  Well…  They <em>all</em> can be trusted, because each copy
-of the repository is a self-consistent, stand-alone repository in its own right.  And you can
-always bring multiple copies of the same repository together by <em>merging</em> them.</p>
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/my_project
+</code></pre></div>    </div>
+  </div>
 
-<p>We’ll talk a little about what is Git and how to use it in the following examples.  I encourage
-you to walk through these steps on your own.</p>
+</div>
+
+<p><strong>Note:</strong> If you get an error here, go back to the previous section (“Repositories”) and create the sample repository following that notebook.</p>
+
+<p>Now, let’s create a <code class="highlighter-rouge">feature</code> branch.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch feature
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+nothing to commit, working tree clean
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Note that we are still on the <code class="highlighter-rouge">master</code> branch, though!  To change to the new branch we just created, you need to use <code class="highlighter-rouge">git checkout</code>.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout feature
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Switched to branch 'feature'
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch feature
+nothing to commit, working tree clean
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now, let’s add a new file in this branch.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"And another file."</span> <span class="o">&gt;</span> file3.txt
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<p>And we stage and commit this new file to this branch.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file3.txt
+git commit <span class="nt">-m</span> <span class="s2">"Adding file3."</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[feature ea578c2] Adding file3.
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3.txt
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch feature
+nothing to commit, working tree clean
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--oneline</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mea578c2[m[33m ([m[1;36mHEAD -&gt; [m[1;32mfeature[m[33m)[m Adding file3.
+[33mcda011c[m[33m ([m[1;32mmaster[m[33m)[m Modifying file1.
+[33m8249fc8[m Adding file2.
+[33md4b13f1[m Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now, let’s switch back to our <code class="highlighter-rouge">master</code> branch.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Switched to branch 'master'
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--oneline</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mcda011c[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Modifying file1.
+[33m8249fc8[m Adding file2.
+[33md4b13f1[m Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Notice that our latest commit doesn’t show up!  It was only in our <code class="highlighter-rouge">feature</code> branch.</p>
+
+<p>Look in your directory, too.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-a</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[34m.[39;49m[0m         [1m[34m..[39;49m[0m        [1m[34m.git[39;49m[0m      file1.txt file2.txt
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Notice that <code class="highlighter-rouge">file3.txt</code> doesn’t exist!  How do we get it back?  Switch back to the <code class="highlighter-rouge">feature</code> branch.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout feature
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Switched to branch 'feature'
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-a</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[34m.[39;49m[0m         [1m[34m..[39;49m[0m        [1m[34m.git[39;49m[0m      file1.txt file2.txt file3.txt
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>And it’s back!</p>
+
+<p>Now, let’s add a change to the <code class="highlighter-rouge">master</code> branch.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Switched to branch 'master'
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Some more text."</span> <span class="o">&gt;&gt;</span> file2.txt
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file2.txt
+git commit <span class="nt">-m</span> <span class="s2">"Modifying file2."</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master 4dc1749] Modifying file2.
+ 1 file changed, 1 insertion(+)
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+nothing to commit, working tree clean
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--oneline</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m4dc1749[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Modifying file2.
+[33mcda011c[m Modifying file1.
+[33m8249fc8[m Adding file2.
+[33md4b13f1[m Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>So, now we have 2 branchs, and each branch shares the first 3 commits in common, but each branch has a different commit added at the “end.”</p>
+
+<h2 id="merging">Merging</h2>
+
+<p>These two branches can continue to develop independently from each other for as long as your like.  However, usually the point of having a branch is because you intend the other branch’s changes to get merged back into the <code class="highlighter-rouge">master</code> branch, at some point.  It’s like following 2 independent thought processes to their natural conclusion, making a decision, and then choosing the process (branch) that you want to use and <em>merging</em> it into your process.  …If that makes sense.</p>
+
+<p>Let’s merge our <code class="highlighter-rouge">feature</code> branch into our <code class="highlighter-rouge">master</code> branch.</p>
+
+<p>To do this, we need to be in the <code class="highlighter-rouge">master</code> branch, <em>where we want the new commits to be merged</em>.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Already on 'master'
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now, we need to merge <em>from</em> the <code class="highlighter-rouge">feature</code> branch.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git merge feature <span class="nt">-m</span> <span class="s2">"Merging feature into master."</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Merge made by the 'recursive' strategy.
+ file3.txt | 1 [32m+[m
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3.txt
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+nothing to commit, working tree clean
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-a</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[34m.[39;49m[0m         [1m[34m..[39;49m[0m        [1m[34m.git[39;49m[0m      file1.txt file2.txt file3.txt
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>file3.txt
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>And another file.
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>file2.txt
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is a new file.
+Some more text.
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>And now you can see we have all of the changes we made to the <code class="highlighter-rouge">feature</code> branch in our <code class="highlighter-rouge">master</code> branch, and all of the changes that were <em>only</em> in our <code class="highlighter-rouge">master</code> branch are still there.</p>
+
+<h2 id="deleting-branches">Deleting branches</h2>
+
+<p>Now that our <code class="highlighter-rouge">feature</code> branch has been merged into <code class="highlighter-rouge">master</code>, it is usually good practice to delete it.  You actually don’t have to delete this branch, but usual practice is to only keep <em>active</em> branches around.  Otherwise, you run the risk of your repo behind hard for new users to parse and figure out.</p>
+
+<p>To delete the <code class="highlighter-rouge">feature</code> branch, we use the <code class="highlighter-rouge">-d</code> option to <code class="highlighter-rouge">git branch</code>:</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  feature[m
+* [32mmaster[m
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">-d</span> feature
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Deleted branch feature (was ea578c2).
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* [32mmaster[m
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
 
               <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/git-workflows/intro">
-      〈 <span class="u-margin-right-tiny"></span> Git & GitHub
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/git-workflows/git/02_repositories">
+      〈 <span class="u-margin-right-tiny"></span> Repositories
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/git-workflows/git/02_repositories">
-      Repositories <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/git-workflows/git/04_conflicts">
+      Conflicts <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>

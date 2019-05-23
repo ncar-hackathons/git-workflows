@@ -29,9 +29,9 @@
   "headline":
     "Search the site",
   "datePublished":
-    "2019-05-23T15:53:07+00:00",
+    "2019-05-23T18:12:45+00:00",
   "dateModified":
-    "2019-05-23T15:53:07+00:00",
+    "2019-05-23T18:12:45+00:00",
   "description":
     "",
   "author": {
@@ -762,7 +762,41 @@ initFunction(initQuery);
                   href="/git-workflows/git/02_repositories.html"
                 >
                   
-                  ...
+                  Repositories
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/git-workflows/git/03_branches.html"
+                >
+                  
+                  Branches
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/git-workflows/git/04_conflicts.html"
+                >
+                  
+                  Conflicts
                 </a>
 
                 
@@ -870,13 +904,29 @@ initFunction(initQuery);
         "tags": [],
         "url": "https://ncar-hackathons.github.io/git-workflows/git/01_what_is_git.html",
         "teaser":null},{
-        "title": "...",
+        "title": "Repositories",
         
         "excerpt":
-            "&lt;img align=”right” height=40 src=”images/git-logo.png”&gt; What is Git? First and foremost, Git is a Version Control System (VCS). That is, it is something that tracks changes in files (or directory structures) incrementally. The files (and directories) that get tracked are contained in a repository, and each change that you commit to the repository gets saved, allowing you to go back to a previous state of the files in your repository. This is the basic definition of a VCS. Git, specifically, is a distributed VCS, as opposed to a centralized VCS. What the difference? A centralized VCS is typified by a single,...",
+            "&lt;img align=”right” height=40 src=”../images/git-logo.png”&gt; Repositories As we’ve already mentioned, repositories are the containers for your work, the work you want tracked by Git. Let’s create some work and see what a repository is, in practice. Creating a sample project Let’s go to a safe place where we can practice creating a Git repository. cd (If we have already run this notebook before, let’s delete the old project and start over…) if [ -d \"my_project\" ]; then rm -rf my_project fi Now, let’s create a new directory called my_project and then add a new text file to it. mkdir my_project cd...",
         "categories": [],
         "tags": [],
         "url": "https://ncar-hackathons.github.io/git-workflows/git/02_repositories.html",
+        "teaser":null},{
+        "title": "Branches",
+        
+        "excerpt":
+            "Branches As promised, I said I would get back to the cryptic comment in the git status saying On branch master. Well, here’s the point where I deliver on my promise. Your repository can save multiple histories. Like alternate timelines from some episode of Star Trek, you can store different sequences of changes in different branches. If you haven’t run the previous Repositories section, then let’s get back to our sample project repository. cd ~/my_project Note: If you get an error here, go back to the previous section (“Repositories”) and create the sample repository following that notebook. Now, let’s create...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ncar-hackathons.github.io/git-workflows/git/03_branches.html",
+        "teaser":null},{
+        "title": "Conflicts",
+        
+        "excerpt":
+            "Conflicts If you are dealing with multiple branches, you can start to run into situations where a change to a file in one branch actually conflicts with changes to a file in another branch. When you merge these two branches together, you will likely get conflicts that need to be fixed before your can finish the merge. Let’s get back to our sample repository: cd ~/my_project And let’s create a “problematic” branch were we will place conflicting changes. git branch problem git branch * \u001b[32mmaster\u001b[m problem\u001b[m git checkout problem Switched to branch 'problem' Let’s make a change to file1.txt. echo...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ncar-hackathons.github.io/git-workflows/git/04_conflicts.html",
         "teaser":null},{
         "title": "GitHub",
         

@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Git &amp; GitHub Workflows</title>
-  <meta name="description" content="">
+  <title>Conflicts</title>
+  <meta name="description" content="Conflicts">
 
-  <link rel="canonical" href="https://ncar-hackathons.github.io/git-workflows/content/git/02_repositories.html">
+  <link rel="canonical" href="https://ncar-hackathons.github.io/git-workflows/git/04_conflicts.html">
   <link rel="alternate" type="application/rss+xml" title="Git & GitHub Workflows" href="https://ncar-hackathons.github.io/git-workflows/feed.xml">
 
-  <meta property="og:url"         content="https://ncar-hackathons.github.io/git-workflows/content/git/02_repositories.html" />
+  <meta property="og:url"         content="https://ncar-hackathons.github.io/git-workflows/git/04_conflicts.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Git &amp; GitHub Workflows" />
-<meta property="og:description" content="" />
+<meta property="og:title"       content="Conflicts" />
+<meta property="og:description" content="Conflicts" />
 <meta property="og:image"       content="" />
 
 
@@ -25,15 +25,15 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://ncar-hackathons.github.io/git-workflows/content/git/02_repositories.html",
+    "https://ncar-hackathons.github.io/git-workflows/git/04_conflicts.html",
   "headline":
-    "Git &amp; GitHub Workflows",
+    "Conflicts",
   "datePublished":
-    "2019-05-23T15:53:07+00:00",
+    "2019-05-23T18:12:45+00:00",
   "dateModified":
-    "2019-05-23T15:53:07+00:00",
+    "2019-05-23T18:12:45+00:00",
   "description":
-    "",
+    "Conflicts",
   "author": {
     "@type": "Person",
     "name": "The XDev Team"
@@ -188,7 +188,7 @@ initFunction(addThebelabButtonToCodeCells);
         theme: "abcdef"
       },
       kernelOptions: {
-        name: 'python3',
+        name: 'bash',
       }
     }
 </script>
@@ -758,11 +758,45 @@ initFunction(initQuery);
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/git-workflows/git/02_repositories.html"
                 >
                   
-                  ...
+                  Repositories
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/git-workflows/git/03_branches.html"
+                >
+                  
+                  Branches
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry c-sidebar__entry--active"
+                  href="/git-workflows/git/04_conflicts.html"
+                >
+                  
+                  Conflicts
                 </a>
 
                 
@@ -859,38 +893,415 @@ initFunction(initQuery);
 </div>
 
             
+<div class="buttons">
+<a href="/git-workflows/content/git/04_conflicts.ipynb" download>
+<button id="interact-button-download" class="interact-button">Download</button>
+</a>
+
+
+<button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+
+
+
+
+
+
+
+
+
+
+<a href="https://binder.pangeo.io/v2/gh/ncar-hackathons/git-workflows/master?urlpath=lab/tree/content%2Fgit%2F04_conflicts.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/git-workflows/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+
+
+
+</div>
+
 
             <div class="c-textbook__content">
-              <p>&lt;img align=”right” height=40 src=”images/git-logo.png”&gt;</p>
+              <h1 id="conflicts">Conflicts</h1>
 
-<h1 id="what-is-git">What is Git?</h1>
+<p>If you are dealing with multiple branches, you can start to run into situations where a change to a file in one branch actually <em>conflicts</em> with changes to a file in another branch.  When you merge these two branches together, you will likely get conflicts that need to be fixed before your can finish the merge.</p>
 
-<p>First and foremost, Git is a Version Control System (VCS).  That is, it is something that
-tracks <em>changes</em> in files (or directory structures) incrementally.  The files (and directories)
-that get tracked are contained in a <em>repository</em>, and each change that you <em>commit</em> to the 
-repository gets saved, allowing you to go back to a previous state of the files in your
-repository.  This is the basic definition of a VCS.</p>
+<p>Let’s get back to our sample repository:</p>
 
-<p>Git, specifically, is a <em>distributed</em> VCS, as opposed to a <em>centralized</em> VCS.  What the
-difference?  A centralized VCS is typified by a <em>single</em>, <em>central</em> <em>server</em> that hosts your
-repository.  With a centralized VCS, changes made by one person on their personal computer
-(for example) must be <em>pushed</em> to the central server in order to be saved in the repository.
-Hence, there is always one, and only one, <em>true</em> repository, which is sitting on the server.</p>
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/my_project
+</code></pre></div>    </div>
+  </div>
 
-<p>Distributed VCSes, on the other hand, don’t have a central server.  That means, as in the
-case of Git, that changes made by one person on their personal computer get saved to <em>their
-own copy</em> of the “true” repository.  …But then which repository is the “true” repository?
-If there are multiple copies of the same repository floating around the interwebs, which one
-is the one that can be <em>trusted</em>?  Well…  They <em>all</em> can be trusted, because each copy
-of the repository is a self-consistent, stand-alone repository in its own right.  And you can
-always bring multiple copies of the same repository together by <em>merging</em> them.</p>
+</div>
 
-<p>We’ll talk a little about what is Git and how to use it in the following examples.  I encourage
-you to walk through these steps on your own.</p>
+<p>And let’s create a “problematic” branch were we will place conflicting changes.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch problem
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* [32mmaster[m
+  problem[m
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout problem
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Switched to branch 'problem'
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Let’s make a change to <code class="highlighter-rouge">file1.txt</code>.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s1">'THIS IS GOING TO BE A PROBLEM!'</span> <span class="o">&gt;&gt;</span> file1.txt
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>file1.txt
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is some text.
+
+And here's some more text.
+THIS IS GOING TO BE A PROBLEM!
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Let’s stage and commit this change.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file1.txt
+git commit <span class="nt">-m</span> <span class="s2">"Making problems in file1"</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[problem 15dd70a] Making problems in file1
+ 1 file changed, 1 insertion(+)
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now, let’s switch back to our <code class="highlighter-rouge">master</code> branch and make a change to <code class="highlighter-rouge">file1.txt</code> there.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s1">'I want this change in file1.'</span> <span class="o">&gt;&gt;</span> file1.txt
+<span class="nb">cat </span>file1.txt
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Switched to branch 'master'
+This is some text.
+
+And here's some more text.
+I want this change in file1.
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>And let’s stage and commit this change.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file1.txt
+git commit <span class="nt">-m</span> <span class="s2">"This is an innocent change."</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master 694f82e] This is an innocent change.
+ 1 file changed, 1 insertion(+)
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now, we have 2 changes to the same file, so when we try to merge the <code class="highlighter-rouge">problem</code> branch into <code class="highlighter-rouge">master</code>, Git won’t know which commit to use, or in which order to apply the changes.  So, it just fails!</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git merge problem <span class="nt">-m</span> <span class="s2">"Trying to merge my problem."</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Auto-merging file1.txt
+CONFLICT (content): Merge conflict in file1.txt
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre></div>      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_traceback_line highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now, look at <code class="highlighter-rouge">file1.txt</code>.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>file1.txt
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is some text.
+
+And here's some more text.
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+I want this change in file1.
+=======
+THIS IS GOING TO BE A PROBLEM!
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; problem
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>You can see that the problematic file (<code class="highlighter-rouge">file1.txt</code>) has been marked with the conflicting lines.</p>
+
+<p>Also, look at what the status now is.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add &lt;file&gt;..." to mark resolution)
+
+	[31mboth modified:   file1.txt[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>This message is basically telling you that you are in the middle of a merge and the “Unmerged paths” are where your conflicts exist.  So, let’s fix the conflicts.</p>
+
+<p>In this case, I am going to change <code class="highlighter-rouge">file1.txt</code> to be what I actually want it to be.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"This is some text."</span> <span class="o">&gt;</span> file1.txt
+<span class="nb">echo</span> <span class="s2">""</span> <span class="o">&gt;&gt;</span> file1.txt
+<span class="nb">echo</span> <span class="s2">"And here's some more text."</span> <span class="o">&gt;&gt;</span> file1.txt
+<span class="nb">echo</span> <span class="s2">""</span> <span class="o">&gt;&gt;</span> file1.txt
+<span class="nb">echo</span> <span class="s2">"I want this change in file1."</span> <span class="o">&gt;&gt;</span> file1.txt
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>file1.txt
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is some text.
+
+And here's some more text.
+
+I want this change in file1.
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>And note that the status hasn’t changed!</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add &lt;file&gt;..." to mark resolution)
+
+	[31mboth modified:   file1.txt[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>We have to stage the changes we made and then commit them in order to finish the commit.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file1.txt
+git commit <span class="nt">-m</span> <span class="s2">"Fixing conflict in file1"</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master 21c0958] Fixing conflict in file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+nothing to commit, working tree clean
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>And we’re done!  Look at the commit logs and see what happened.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--oneline</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m21c0958[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Fixing conflict in file1
+[33m694f82e[m This is an innocent change.
+[33m15dd70a[m[33m ([m[1;32mproblem[m[33m)[m Making problems in file1
+[33md38cee4[m Merging feature into master.
+[33m4dc1749[m Modifying file2.
+[33mea578c2[m Adding file3.
+[33mcda011c[m Modifying file1.
+[33m8249fc8[m Adding file2.
+[33md4b13f1[m Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>All of the changes are there!  Even the bad ones, and the fix that made it all work.</p>
+
+<p>Now that we have merged <code class="highlighter-rouge">problem</code> into <code class="highlighter-rouge">master</code>, and fixed all of the changes, let’s delete the <code class="highlighter-rouge">problem</code> branch.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* [32mmaster[m
+  problem[m
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">-d</span> problem
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Deleted branch problem (was 15dd70a).
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
 
               <nav class="c-page__nav">
   
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/git-workflows/git/03_branches">
+      〈 <span class="u-margin-right-tiny"></span> Branches
+    </a>
+  
 
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/git-workflows/github/01_what_is_github">
+      GitHub <span class="u-margin-right-tiny"></span> 〉
+    </a>
   
 </nav>
 
