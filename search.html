@@ -29,9 +29,9 @@
   "headline":
     "Search the site",
   "datePublished":
-    "2019-05-22T22:21:11+00:00",
+    "2019-05-23T15:53:07+00:00",
   "dateModified":
-    "2019-05-22T22:21:11+00:00",
+    "2019-05-23T15:53:07+00:00",
   "description":
     "",
   "author": {
@@ -716,10 +716,10 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/git-workflows/01_what_is_git.html"
+          href="/git-workflows/intro.html"
         >
           
-          What is Git?
+          Git & GitHub
         </a>
 
         
@@ -737,10 +737,10 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/git-workflows/02_git_in_a_nutshell.html"
+          href="/git-workflows/git/01_what_is_git.html"
         >
           
-          Git in a nutshell
+          Git
         </a>
 
         
@@ -759,10 +759,60 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/git-workflows/features/01_example.html"
+                  href="/git-workflows/git/02_repositories.html"
                 >
                   
-                  Example
+                  ...
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/git-workflows/github/01_what_is_github.html"
+        >
+          
+          GitHub
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/git-workflows/github/02_repositories.html"
+                >
+                  
+                  ...
                 </a>
 
                 
@@ -812,29 +862,45 @@ initFunction(initQuery);
 <script>
     // Add the lunr store since we will now search it
     var store = [{
-        "title": "What is Git?",
+        "title": "Git",
         
         "excerpt":
-            "&lt;img align=”right” height=40 src=”images/git-logo.png”&gt;   What is Git?   Well, if you don’t know by now, Git is the Version Control System (VCS) used by GitHub.   Unlike SVN, Git repositories contain the entire version history, which means that Git repositories do not have a “central repository”.  Or, rather, any copy of a Git repository can be treated as the “central repository”.  …Or, to be even more complicated, there  does not have to be central repository at all!   I know.  It’s kinda confusing, so let’s take baby steps.  ",
+            "&lt;img align=”right” height=40 src=”images/git-logo.png”&gt; What is Git? First and foremost, Git is a Version Control System (VCS). That is, it is something that tracks changes in files (or directory structures) incrementally. The files (and directories) that get tracked are contained in a repository, and each change that you commit to the repository gets saved, allowing you to go back to a previous state of the files in your repository. This is the basic definition of a VCS. Git, specifically, is a distributed VCS, as opposed to a centralized VCS. What the difference? A centralized VCS is typified by a single,...",
         "categories": [],
         "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/01_what_is_git.html",
+        "url": "https://ncar-hackathons.github.io/git-workflows/git/01_what_is_git.html",
         "teaser":null},{
-        "title": "Git in a nutshell",
+        "title": "...",
         
         "excerpt":
-            "Git in a Nutshell   as;dfklhjas;df asdfj;asd asdf ad a df as df   asdf as df   asfd  ",
+            "&lt;img align=”right” height=40 src=”images/git-logo.png”&gt; What is Git? First and foremost, Git is a Version Control System (VCS). That is, it is something that tracks changes in files (or directory structures) incrementally. The files (and directories) that get tracked are contained in a repository, and each change that you commit to the repository gets saved, allowing you to go back to a previous state of the files in your repository. This is the basic definition of a VCS. Git, specifically, is a distributed VCS, as opposed to a centralized VCS. What the difference? A centralized VCS is typified by a single,...",
         "categories": [],
         "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/02_git_in_a_nutshell.html",
+        "url": "https://ncar-hackathons.github.io/git-workflows/git/02_repositories.html",
         "teaser":null},{
-        "title": "Example",
+        "title": "GitHub",
         
         "excerpt":
-            "Example   ",
+            "&lt;img align=”right” height=40 src=”images/github-logo.png”&gt;   What is GitHub?   ",
         "categories": [],
         "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/features/01_example.html",
+        "url": "https://ncar-hackathons.github.io/git-workflows/github/01_what_is_github.html",
+        "teaser":null},{
+        "title": "...",
+        
+        "excerpt":
+            "&lt;img align=”right” height=40 src=”images/git-logo.png”&gt; What is Git? First and foremost, Git is a Version Control System (VCS). That is, it is something that tracks changes in files (or directory structures) incrementally. The files (and directories) that get tracked are contained in a repository, and each change that you commit to the repository gets saved, allowing you to go back to a previous state of the files in your repository. This is the basic definition of a VCS. Git, specifically, is a distributed VCS, as opposed to a centralized VCS. What the difference? A centralized VCS is typified by a single,...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ncar-hackathons.github.io/git-workflows/github/02_repositories.html",
+        "teaser":null},{
+        "title": "Git & GitHub",
+        
+        "excerpt":
+            "Git &amp; GitHub Using a Version Control System (VCS) is one of the most powerful things that you can do as a developer of any level, whether you are a casual developer “for fun” or you have to develop for your job or you are a hard-core software engineer. Version Control Systems can save your bum more than you like, certainly, but they can also be incredible educational tools that help you see how software develops and changes over time. There is only one reason you should need to always use a VCS for everything you do, whether you are...",
+        "categories": [],
+        "tags": [],
+        "url": "https://ncar-hackathons.github.io/git-workflows/intro.html",
         "teaser":null},]
 
 </script>

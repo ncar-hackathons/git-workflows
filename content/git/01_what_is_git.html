@@ -7,15 +7,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Example</title>
+  <title>Git &amp; GitHub Workflows</title>
   <meta name="description" content="">
 
-  <link rel="canonical" href="https://ncar-hackathons.github.io/git-workflows/content/features/01_example.html">
+  <link rel="canonical" href="https://ncar-hackathons.github.io/git-workflows/content/git/01_what_is_git.html">
   <link rel="alternate" type="application/rss+xml" title="Git & GitHub Workflows" href="https://ncar-hackathons.github.io/git-workflows/feed.xml">
 
-  <meta property="og:url"         content="https://ncar-hackathons.github.io/git-workflows/content/features/01_example.html" />
+  <meta property="og:url"         content="https://ncar-hackathons.github.io/git-workflows/content/git/01_what_is_git.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Example" />
+<meta property="og:title"       content="Git &amp; GitHub Workflows" />
 <meta property="og:description" content="" />
 <meta property="og:image"       content="" />
 
@@ -25,13 +25,13 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://ncar-hackathons.github.io/git-workflows/content/features/01_example.html",
+    "https://ncar-hackathons.github.io/git-workflows/content/git/01_what_is_git.html",
   "headline":
-    "Example",
+    "Git &amp; GitHub Workflows",
   "datePublished":
-    "2019-05-22T22:21:11+00:00",
+    "2019-05-23T15:53:07+00:00",
   "dateModified":
-    "2019-05-22T22:21:11+00:00",
+    "2019-05-23T15:53:07+00:00",
   "description":
     "",
   "author": {
@@ -716,10 +716,10 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/git-workflows/01_what_is_git.html"
+          href="/git-workflows/intro.html"
         >
           
-          What is Git?
+          Git & GitHub
         </a>
 
         
@@ -736,11 +736,11 @@ initFunction(initQuery);
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/git-workflows/02_git_in_a_nutshell.html"
+        <a class="c-sidebar__entry c-sidebar__entry--active"
+          href="/git-workflows/git/01_what_is_git.html"
         >
           
-          Git in a nutshell
+          Git
         </a>
 
         
@@ -758,11 +758,61 @@ initFunction(initQuery);
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
-                  href="/git-workflows/features/01_example.html"
+                <a class="c-sidebar__entry "
+                  href="/git-workflows/git/02_repositories.html"
                 >
                   
-                  Example
+                  ...
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/git-workflows/github/01_what_is_github.html"
+        >
+          
+          GitHub
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/git-workflows/github/02_repositories.html"
+                >
+                  
+                  ...
                 </a>
 
                 
@@ -811,8 +861,32 @@ initFunction(initQuery);
             
 
             <div class="c-textbook__content">
-              <h1 id="example">Example</h1>
+              <p>&lt;img align=”right” height=40 src=”images/git-logo.png”&gt;</p>
 
+<h1 id="what-is-git">What is Git?</h1>
+
+<p>First and foremost, Git is a Version Control System (VCS).  That is, it is something that
+tracks <em>changes</em> in files (or directory structures) incrementally.  The files (and directories)
+that get tracked are contained in a <em>repository</em>, and each change that you <em>commit</em> to the 
+repository gets saved, allowing you to go back to a previous state of the files in your
+repository.  This is the basic definition of a VCS.</p>
+
+<p>Git, specifically, is a <em>distributed</em> VCS, as opposed to a <em>centralized</em> VCS.  What the
+difference?  A centralized VCS is typified by a <em>single</em>, <em>central</em> <em>server</em> that hosts your
+repository.  With a centralized VCS, changes made by one person on their personal computer
+(for example) must be <em>pushed</em> to the central server in order to be saved in the repository.
+Hence, there is always one, and only one, <em>true</em> repository, which is sitting on the server.</p>
+
+<p>Distributed VCSes, on the other hand, don’t have a central server.  That means, as in the
+case of Git, that changes made by one person on their personal computer get saved to <em>their
+own copy</em> of the “true” repository.  …But then which repository is the “true” repository?
+If there are multiple copies of the same repository floating around the interwebs, which one
+is the one that can be <em>trusted</em>?  Well…  They <em>all</em> can be trusted, because each copy
+of the repository is a self-consistent, stand-alone repository in its own right.  And you can
+always bring multiple copies of the same repository together by <em>merging</em> them.</p>
+
+<p>We’ll talk a little about what is Git and how to use it in the following examples.  I encourage
+you to walk through these steps on your own.</p>
 
               <nav class="c-page__nav">
   
