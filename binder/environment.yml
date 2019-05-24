@@ -1,4 +1,4 @@
-name: test-env
+name: git-workflows 
 channels:
   - conda-forge
 dependencies:
@@ -8,6 +8,7 @@ dependencies:
   - numpy
   - matplotlib
   - scipy
+  - jupyterlab
   - pip:
     - bash_kernel
     - -r ../requirements.txt
