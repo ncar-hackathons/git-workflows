@@ -42,6 +42,14 @@
   sections:
   - title: Getting Started with GitHub
     url: /github/02_getting_started_with_github
+  - title: Repositories
+    url: /github/03_repositories
+  - title: Clones
+    url: /github/04_clones
+  - title: Forks
+    url: /github/05_forks
+  - title: Integrations
+    url: /github/06_integrations
 
 - title: Search
   search: true
