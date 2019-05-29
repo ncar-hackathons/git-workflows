@@ -32,6 +32,8 @@
     url: /git/03_branches
   - title: Conflicts
     url: /git/04_conflicts
+  - title: Clones
+    url: /git/05_clones
 
 - title: GitHub
   url: /github/01_what_is_github
