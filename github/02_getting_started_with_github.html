@@ -29,9 +29,9 @@
   "headline":
     "Getting Started with GitHub",
   "datePublished":
-    "2019-05-29T19:44:01+00:00",
+    "2019-05-29T21:44:06+00:00",
   "dateModified":
-    "2019-05-29T19:44:01+00:00",
+    "2019-05-29T21:44:06+00:00",
   "description":
     "Getting Started with GitHub",
   "author": {
@@ -872,6 +872,74 @@ initFunction(initQuery);
               </li>
               
             
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/git-workflows/github/03_repositories.html"
+                >
+                  
+                  Repositories
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/git-workflows/github/04_clones.html"
+                >
+                  
+                  Clones
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/git-workflows/github/05_forks.html"
+                >
+                  
+                  Forks
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/git-workflows/github/06_integrations.html"
+                >
+                  
+                  Integrations
+                </a>
+
+                
+                
+
+              </li>
+              
+            
           </ul>
         
       </li>
@@ -939,6 +1007,31 @@ initFunction(initQuery);
               <p><img src="../images/github-logo.png" alt="" /></p>
 <h1 id="getting-started-with-github">Getting Started with GitHub</h1>
 
+<p>The first thing you will need is a GitHub account.  If you don’t already have one, go to <a href="https://github.com">github.com</a>.</p>
+
+<p>Next, you need to make sure that the email address you have associate with your Git installation (i.e., <code class="highlighter-rouge">git config</code>) is the same as the email address associated with your GitHub account.  <em>This is how GitHub knows it is you!</em></p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> <span class="nt">--get</span> user.email
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kpaul@ucar.edu
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>If the previous cell doesn’t return an email address that matches the email address you used for your GitHub account, then you should change it with the following line:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.email you@domain.example.com
+</code></pre></div></div>
+
+<p>And that’s about all you need to do to get started with GitHub.  We’ll be going back and forth between the <a href="https://github.com">GitHub website</a> and wherever you have Git installed for the remainder of this section, so you might want to bring up GitHub in another tab of your browser.</p>
+
               <nav class="c-page__nav">
   
     
@@ -949,8 +1042,8 @@ initFunction(initQuery);
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="">
-       <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/git-workflows/github/03_repositories">
+      Repositories <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>

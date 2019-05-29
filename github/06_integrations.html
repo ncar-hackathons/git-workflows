@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Search the site</title>
-  <meta name="description" content="">
+  <title>Integrations</title>
+  <meta name="description" content="Integrations">
 
-  <link rel="canonical" href="https://ncar-hackathons.github.io/git-workflows/search">
+  <link rel="canonical" href="https://ncar-hackathons.github.io/git-workflows/github/06_integrations.html">
   <link rel="alternate" type="application/rss+xml" title="Git & GitHub Workflows" href="https://ncar-hackathons.github.io/git-workflows/feed.xml">
 
-  <meta property="og:url"         content="https://ncar-hackathons.github.io/git-workflows/search" />
+  <meta property="og:url"         content="https://ncar-hackathons.github.io/git-workflows/github/06_integrations.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Search the site" />
-<meta property="og:description" content="" />
+<meta property="og:title"       content="Integrations" />
+<meta property="og:description" content="Integrations" />
 <meta property="og:image"       content="" />
 
 
@@ -25,15 +25,15 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://ncar-hackathons.github.io/git-workflows/search",
+    "https://ncar-hackathons.github.io/git-workflows/github/06_integrations.html",
   "headline":
-    "Search the site",
+    "Integrations",
   "datePublished":
     "2019-05-29T21:44:06+00:00",
   "dateModified":
     "2019-05-29T21:44:06+00:00",
   "description":
-    "",
+    "Integrations",
   "author": {
     "@type": "Person",
     "name": "The XDev Team"
@@ -188,7 +188,7 @@ initFunction(addThebelabButtonToCodeCells);
         theme: "abcdef"
       },
       kernelOptions: {
-        name: 'python3',
+        name: 'bash',
       }
     }
 </script>
@@ -927,7 +927,7 @@ initFunction(initQuery);
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/git-workflows/github/06_integrations.html"
                 >
                   
@@ -955,6 +955,13 @@ initFunction(initQuery);
 </nav>
 
       
+      <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+      <aside class="sidebar__right">
+          <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+          <nav class="onthispage">
+          </nav>
+      </aside>
+      
       <main class="c-textbook__page" tabindex="-1">
           <div class="o-wrapper">
             <div class="c-sidebar-toggle">
@@ -971,118 +978,66 @@ initFunction(initQuery);
 </div>
 
             
+<div class="buttons">
+<a href="/git-workflows/content/github/06_integrations.ipynb" download>
+<button id="interact-button-download" class="interact-button">Download</button>
+</a>
 
-            <div class="c-textbook__content">
-              <div class="search-content__inner-wrap">
-    <input type="text" id="lunr_search" class="search-input" tabindex="-1" placeholder="'Enter your search term...''" />
-    <div id="results" class="results"></div>
+
+<button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+
+
+
+
+
+
+
+
+
+
+<a href="https://binder.pangeo.io/v2/gh/ncar-hackathons/git-workflows/master?urlpath=lab/tree/content%2Fgithub%2F06_integrations.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/git-workflows/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+
+
+
 </div>
 
-<script>
-    // Add the lunr store since we will now search it
-    var store = [{
-        "title": "Git",
-        
-        "excerpt":
-            "What is Git? First and foremost, Git is a Version Control System (VCS). That is, it is something that tracks changes in files (or directory structures) incrementally. The files (and directories) that get tracked are contained in a repository, and each change that you commit to the repository gets saved, allowing you to go back to a previous state of the files in your repository. This is the basic definition of a VCS. Git, specifically, is a distributed VCS, as opposed to a centralized VCS. What the difference? A centralized VCS is typified by a single, central server that hosts...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/git/01_what_is_git.html",
-        "teaser":null},{
-        "title": "Repositories",
-        
-        "excerpt":
-            "Repositories As we’ve already mentioned, repositories are the containers for your work, the work you want tracked by Git. Let’s create some work and see what a repository is, in practice. Creating a sample project Let’s go to a safe place where we can practice creating a Git repository. cd (If we have already run this notebook before, let’s delete the old project and start over…) if [ -d \"my_project\" ]; then rm -rf my_project fi Now, let’s create a new directory called my_project and then add a new text file to it. mkdir my_project cd my_project echo \"This is...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/git/02_repositories.html",
-        "teaser":null},{
-        "title": "Branches",
-        
-        "excerpt":
-            "Branches As promised, I said I would get back to the cryptic comment in the git status saying On branch master. Well, here’s the point where I deliver on my promise. Your repository can save multiple histories. Like alternate timelines from some episode of Star Trek, you can store different sequences of changes in different branches. If you haven’t run the previous Repositories section, then let’s get back to our sample project repository. cd ~/my_project Note: If you get an error here, go back to the previous section (“Repositories”) and create the sample repository following that notebook. Now, let’s create...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/git/03_branches.html",
-        "teaser":null},{
-        "title": "Conflicts",
-        
-        "excerpt":
-            "Conflicts If you are dealing with multiple branches, you can start to run into situations where a change to a file in one branch actually conflicts with changes to a file in another branch. When you merge these two branches together, you will likely get conflicts that need to be fixed before your can finish the merge. Let’s get back to our sample repository: cd ~/my_project And let’s create a “problematic” branch were we will place conflicting changes. git branch problem git branch * \u001b[32mmaster\u001b[m problem\u001b[m git checkout problem Switched to branch 'problem' Let’s make a change to file1.txt. echo...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/git/04_conflicts.html",
-        "teaser":null},{
-        "title": "Clones",
-        
-        "excerpt":
-            "Clones As I mentioned in the start of this section, I said that Git was a distributed VCS, and I used the word distributed as opposed to centralized to mean that Git does not assume a centralized server hosting your Git repository. That means that every “copy” of a Git repository is a self-sufficient repository of its own. However, a simple copy is probably not what you want. The advantage of using a distributed VCS is that you can push (pull) changes to (from) another repository. In fact, you can set a copy of one repository to pull changes from...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/git/05_clones.html",
-        "teaser":null},{
-        "title": "GitHub",
-        
-        "excerpt":
-            "What is GitHub? While Git is a distributed Version Control System (VCS), there is nothing to prevent you from having a central server to host your “blessed” Git repository. That is essentially what GitHub is: a hosting platform for your Git repositories. Repositories on GitHub are bare repositories (see last section) where branches and commits can not be checked out, but they can be cloned ad infinitum. Also, users with the correct priviledges can push their changes directly to GitHub repositories. But GitHub is a lot more than that! GitHub can help you track issues, provide a framework for “Pull...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/github/01_what_is_github.html",
-        "teaser":null},{
-        "title": "Getting Started with GitHub",
-        
-        "excerpt":
-            "Getting Started with GitHub The first thing you will need is a GitHub account. If you don’t already have one, go to github.com. Next, you need to make sure that the email address you have associate with your Git installation (i.e., git config) is the same as the email address associated with your GitHub account. This is how GitHub knows it is you! git config --global --get user.email kpaul@ucar.edu If the previous cell doesn’t return an email address that matches the email address you used for your GitHub account, then you should change it with the following line: git config...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/github/02_getting_started_with_github.html",
-        "teaser":null},{
-        "title": "Repositories",
-        
-        "excerpt":
-            "Repositories As we mentioned in the section on Git, GitHub hosts bare repositories. These are repositories that cannot have code “checked out” in them. Rather, they represent just the .git hidden directory contents of a Git repository. Let’s create a repository using the GitHub interface. Step 1 If you are logged into GitHub, you should see a “+” sign at the top-right of the page, next to your image or avatar. Step 2 Click the “+” symbol and select “New repository”. This should take you to a repository initialization page. Fill out the form as you see here and click...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/github/03_repositories.html",
-        "teaser":null},{
-        "title": "Clones",
-        
-        "excerpt":
-            "Clones Now, let’s go back to our example repositories home page. Note: You can also just as easily put into your browser the URL: https://github.com/[username]/example Now, let’s click on the “Clone or download” button and then copy the URL for this repository onto your clipboard. Next, let’s create a clone of this repository where we currently are located (in this notebook). cd git clone https://github.com/kmpaul/example.git Cloning into 'example'... remote: Enumerating objects: 8, done.\u001b[K remote: Counting objects: 100% (8/8), done.\u001b[K remote: Compressing objects: 100% (7/7), done.\u001b[K remote: Total 8 (delta 1), reused 0 (delta 0), pack-reused 0\u001b[K Unpacking objects: 100% (8/8),...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/github/04_clones.html",
-        "teaser":null},{
-        "title": "Forks",
-        
-        "excerpt":
-            "Forks &amp; Pull Requests Forks “Forks” are just clones hosted on GitHub, essentially. We have described the “branch-merge” technique already (in the Git section) for keeping multiple contributors from stomping on each other’s work. That technique works very well when everyone who is contributing has permissions to contribute to the repository. However, for any number of reasons, constantly adding users as “contributors” (i.e., giving them permissions to write to the repository) may not be the most desirable thing to do. The main reason for this is that all users who have write permissions to the repository can directly push their...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/github/05_forks.html",
-        "teaser":null},{
-        "title": "Integrations",
-        
-        "excerpt":
-            "Integrations A wonderful feature of GitHub is its ability to integrate with a wide variety of automated processes, such as Continuous Integration and Code Coverage! Continuous Integration (CI) Continuous Integration (CI) allows you to use a free hosting service to run tests for your project code automatically, every time a new PR is attempted. That means, your test suite will be run “somewhere on the cloud”, depending on the CI service you use (CircleCI, TravisCI, AppVeyor, etc.). Each of these CI services has advantages and disadvantages. For example, AppVeyor will test you code on a Windows or Linux machine (for...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/github/06_integrations.html",
-        "teaser":null},{
-        "title": "Git & GitHub",
-        
-        "excerpt":
-            "Git &amp; GitHub Using a Version Control System (VCS) is one of the most powerful things that you can do as a developer of any level, whether you are a casual developer “for fun” or you have to develop for your job or you are a hard-core software engineer. Version Control Systems can save your bum more than you like, certainly, but they can also be incredible educational tools that help you see how software develops and changes over time. There is only one reason you should need to always use a VCS for everything you do, whether you are...",
-        "categories": [],
-        "tags": [],
-        "url": "https://ncar-hackathons.github.io/git-workflows/intro.html",
-        "teaser":null},]
 
-</script>
+            <div class="c-textbook__content">
+              <p><img src="../images/github-logo.png" alt="" /></p>
+<h1 id="integrations">Integrations</h1>
+
+<p>A wonderful feature of GitHub is its ability to integrate with a wide variety of automated processes, such as Continuous Integration and Code Coverage!</p>
+
+<h3 id="continuous-integration-ci">Continuous Integration (CI)</h3>
+
+<p>Continuous Integration (CI) allows you to use a free hosting service to run tests for your project code <em>automatically, every time a new PR is attempted</em>.  That means, your test suite will be run “somewhere on the cloud”, depending on the CI service you use (CircleCI, TravisCI, AppVeyor, etc.).  Each of these CI services has advantages and disadvantages.  For example, AppVeyor will test you code on a Windows or Linux machine (for free).  TravisCI will let you test on Linux, MacOS, and Android (for free).  Obviously, you can pay for additional options.</p>
+
+<h3 id="code-coverage">Code Coverage</h3>
+
+<p>Code Coverage is a capability that allows you to test what <em>lines</em> of your code are actually tested by your test suite.  It is not perfect, but code coverage allows you get a sense for whether there are any branches in your code that aren’t being tested.  Code coverage can identify the actual “missed” lines of code, and you can write tests to test that code.</p>
+
+<h3 id="code-quality-checks">Code Quality Checks</h3>
+
+<p>There are a number of automated tools that let you check the <em>quality</em> of your code, according to set standards.  This includes things like code formatting standards and other such things.</p>
+
+<h2 id="and-so-much-more">And so much more…</h2>
+
+<p>You can look at the <a href="https://github.com/marketplace">GitHub Marketplace</a> to find integrations that you might be interested in using.  Some integrations may require payment for certain services, while many others provide a <em>free</em> level of service, usually to Open Source (i.e., <em>public</em>) GitHub repositories.  (It’s good to be open source!)</p>
 
               <nav class="c-page__nav">
   
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/git-workflows/github/05_forks">
+      〈 <span class="u-margin-right-tiny"></span> Forks
+    </a>
+  
 
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="">
+       <span class="u-margin-right-tiny"></span> 〉
+    </a>
   
 </nav>
 
