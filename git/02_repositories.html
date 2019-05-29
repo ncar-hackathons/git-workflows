@@ -29,9 +29,9 @@
   "headline":
     "Repositories",
   "datePublished":
-    "2019-05-29T21:44:06+00:00",
+    "2019-05-29T21:54:38+00:00",
   "dateModified":
-    "2019-05-29T21:44:06+00:00",
+    "2019-05-29T21:54:38+00:00",
   "description":
     "Repositories",
   "author": {
@@ -1017,7 +1017,8 @@ in practice.</p>
 
 <div class="cell code_cell">
   <div class="input_area">
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">TERM</span><span class="o">=</span>xterm-mono
+<span class="nb">cd</span>
 </code></pre></div>    </div>
   </div>
 
@@ -1073,7 +1074,7 @@ in practice.</p>
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[36m.[39;49m[0m         [1m[36m..[39;49m[0m        file1.txt
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.		..		file1.txt
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1153,7 +1154,7 @@ git config <span class="nt">--global</span> user.email you@domain.example.com
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[36m.[39;49m[0m         [1m[36m..[39;49m[0m        [1m[36m.git[39;49m[0m      file1.txt
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.		..		.git		file1.txt
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1259,7 +1260,7 @@ Changes to be committed:
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master (root-commit) 6365179] Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master (root-commit) ea41f20] Adding file1
  1 file changed, 1 insertion(+)
  create mode 100644 file1.txt
 </code></pre></div>      </div>
@@ -1424,7 +1425,7 @@ Changes to be committed:
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master f51c712] Adding file2.
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master 170158a] Adding file2.
  1 file changed, 1 insertion(+)
  create mode 100644 file2.txt
 </code></pre></div>      </div>
@@ -1459,7 +1460,7 @@ Changes to be committed:
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master d02d734] Modifying file1.
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master cb3f2ae] Modifying file1.
  1 file changed, 2 insertions(+)
 </code></pre></div>      </div>
     </div>
@@ -1495,21 +1496,21 @@ nothing to commit, working tree clean
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mcommit d02d7340ceed644dd8a005dfaa697149ccccca61[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mcommit cb3f2ae04554aaeb84bc7be09e43f9dcbb5a6864[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m
 Author: Kevin Paul &lt;kpaul@ucar.edu&gt;
-Date:   Wed May 29 09:03:33 2019 -0600
+Date:   Wed May 29 15:47:55 2019 -0600
 
     Modifying file1.
 
-[33mcommit f51c7127966a64024fd14765411dda84e54ec17c[m
+[33mcommit 170158a1114455220ac953e4e73940d004d01bad[m
 Author: Kevin Paul &lt;kpaul@ucar.edu&gt;
-Date:   Wed May 29 09:03:32 2019 -0600
+Date:   Wed May 29 15:47:55 2019 -0600
 
     Adding file2.
 
-[33mcommit 6365179a66312cf2bcc4f1ff127f5b74d30a498b[m
+[33mcommit ea41f207e5a45b5df47c184546ae1a7de090df27[m
 Author: Kevin Paul &lt;kpaul@ucar.edu&gt;
-Date:   Wed May 29 09:03:28 2019 -0600
+Date:   Wed May 29 15:47:50 2019 -0600
 
     Adding file1
 </code></pre></div>      </div>
@@ -1531,9 +1532,9 @@ Date:   Wed May 29 09:03:28 2019 -0600
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33md02d734[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Modifying file1.
-[33mf51c712[m Adding file2.
-[33m6365179[m Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mcb3f2ae[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Modifying file1.
+[33m170158a[m Adding file2.
+[33mea41f20[m Adding file1
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1549,15 +1550,15 @@ Date:   Wed May 29 09:03:28 2019 -0600
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mcommit d02d7340ceed644dd8a005dfaa697149ccccca61[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mcommit cb3f2ae04554aaeb84bc7be09e43f9dcbb5a6864[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m
 Author: Kevin Paul &lt;kpaul@ucar.edu&gt;
-Date:   Wed May 29 09:03:33 2019 -0600
+Date:   Wed May 29 15:47:55 2019 -0600
 
     Modifying file1.
 
-[33mcommit 6365179a66312cf2bcc4f1ff127f5b74d30a498b[m
+[33mcommit ea41f207e5a45b5df47c184546ae1a7de090df27[m
 Author: Kevin Paul &lt;kpaul@ucar.edu&gt;
-Date:   Wed May 29 09:03:28 2019 -0600
+Date:   Wed May 29 15:47:50 2019 -0600
 
     Adding file1
 </code></pre></div>      </div>
@@ -1584,9 +1585,9 @@ Date:   Wed May 29 09:03:28 2019 -0600
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mcommit 6365179a66312cf2bcc4f1ff127f5b74d30a498b[m
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mcommit ea41f207e5a45b5df47c184546ae1a7de090df27[m
 Author: Kevin Paul &lt;kpaul@ucar.edu&gt;
-Date:   Wed May 29 09:03:28 2019 -0600
+Date:   Wed May 29 15:47:50 2019 -0600
 
     Adding file1
 </code></pre></div>      </div>
@@ -1598,13 +1599,13 @@ Date:   Wed May 29 09:03:28 2019 -0600
 
 <div class="cell code_cell">
   <div class="input_area">
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout 636517
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout ea41f2
 </code></pre></div>    </div>
   </div>
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Note: checking out '636517'.
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Note: checking out 'ea41f2'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -1615,7 +1616,7 @@ do so (now or later) by using -b with the checkout command again. Example:
 
   git checkout -b &lt;new-branch-name&gt;
 
-HEAD is now at 6365179 Adding file1
+HEAD is now at ea41f20 Adding file1
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1629,7 +1630,7 @@ HEAD is now at 6365179 Adding file1
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[36m.[39;49m[0m         [1m[36m..[39;49m[0m        [1m[36m.git[39;49m[0m      file1.txt
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.		..		.git		file1.txt
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1665,7 +1666,7 @@ HEAD is now at 6365179 Adding file1
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Previous HEAD position was 6365179 Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Previous HEAD position was ea41f20 Adding file1
 Switched to branch 'master'
 </code></pre></div>      </div>
     </div>
@@ -1695,7 +1696,7 @@ nothing to commit, working tree clean
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[36m.[39;49m[0m         [1m[36m..[39;49m[0m        [1m[36m.git[39;49m[0m      file1.txt file2.txt
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.		..		.git		file1.txt	file2.txt
 </code></pre></div>      </div>
     </div>
   </div>

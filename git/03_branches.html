@@ -29,9 +29,9 @@
   "headline":
     "Branches",
   "datePublished":
-    "2019-05-29T21:44:06+00:00",
+    "2019-05-29T21:54:38+00:00",
   "dateModified":
-    "2019-05-29T21:44:06+00:00",
+    "2019-05-29T21:54:38+00:00",
   "description":
     "Branches",
   "author": {
@@ -1015,7 +1015,8 @@ initFunction(initQuery);
 
 <div class="cell code_cell">
   <div class="input_area">
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/my_project
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">TERM</span><span class="o">=</span>xterm-mono
+<span class="nb">cd</span> ~/my_project
 </code></pre></div>    </div>
   </div>
 
@@ -1100,7 +1101,7 @@ git commit <span class="nt">-m</span> <span class="s2">"Adding file3."</span>
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[feature 49e796f] Adding file3.
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[feature de51d09] Adding file3.
  1 file changed, 1 insertion(+)
  create mode 100644 file3.txt
 </code></pre></div>      </div>
@@ -1131,10 +1132,10 @@ nothing to commit, working tree clean
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m49e796f[m[33m ([m[1;36mHEAD -&gt; [m[1;32mfeature[m[33m)[m Adding file3.
-[33md02d734[m[33m ([m[1;32mmaster[m[33m)[m Modifying file1.
-[33mf51c712[m Adding file2.
-[33m6365179[m Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mde51d09[m[33m ([m[1;36mHEAD -&gt; [m[1;32mfeature[m[33m)[m Adding file3.
+[33mcb3f2ae[m[33m ([m[1;32mmaster[m[33m)[m Modifying file1.
+[33m170158a[m Adding file2.
+[33mea41f20[m Adding file1
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1164,9 +1165,9 @@ nothing to commit, working tree clean
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33md02d734[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Modifying file1.
-[33mf51c712[m Adding file2.
-[33m6365179[m Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mcb3f2ae[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Modifying file1.
+[33m170158a[m Adding file2.
+[33mea41f20[m Adding file1
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1184,7 +1185,7 @@ nothing to commit, working tree clean
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[36m.[39;49m[0m         [1m[36m..[39;49m[0m        [1m[36m.git[39;49m[0m      file1.txt file2.txt
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.		..		.git		file1.txt	file2.txt
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1214,7 +1215,8 @@ nothing to commit, working tree clean
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[36m.[39;49m[0m         [1m[36m..[39;49m[0m        [1m[36m.git[39;49m[0m      file1.txt file2.txt file3.txt
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.		.git		file2.txt
+..		file1.txt	file3.txt
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1255,7 +1257,7 @@ git commit <span class="nt">-m</span> <span class="s2">"Modifying file2."</span>
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master 5d4663e] Modifying file2.
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master efd779d] Modifying file2.
  1 file changed, 1 insertion(+)
 </code></pre></div>      </div>
     </div>
@@ -1285,10 +1287,10 @@ nothing to commit, working tree clean
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m5d4663e[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Modifying file2.
-[33md02d734[m Modifying file1.
-[33mf51c712[m Adding file2.
-[33m6365179[m Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mefd779d[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Modifying file2.
+[33mcb3f2ae[m Modifying file1.
+[33m170158a[m Adding file2.
+[33mea41f20[m Adding file1
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1360,7 +1362,8 @@ nothing to commit, working tree clean
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1m[36m.[39;49m[0m         [1m[36m..[39;49m[0m        [1m[36m.git[39;49m[0m      file1.txt file2.txt file3.txt
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.		.git		file2.txt
+..		file1.txt	file3.txt
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1407,12 +1410,12 @@ Some more text.
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mccd751d[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Merging feature into master.
-[33m5d4663e[m Modifying file2.
-[33m49e796f[m[33m ([m[1;32mfeature[m[33m)[m Adding file3.
-[33md02d734[m Modifying file1.
-[33mf51c712[m Adding file2.
-[33m6365179[m Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m7ac1923[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Merging feature into master.
+[33mefd779d[m Modifying file2.
+[33mde51d09[m[33m ([m[1;32mfeature[m[33m)[m Adding file3.
+[33mcb3f2ae[m Modifying file1.
+[33m170158a[m Adding file2.
+[33mea41f20[m Adding file1
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1449,7 +1452,7 @@ Some more text.
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Deleted branch feature (was 49e796f).
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Deleted branch feature (was de51d09).
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1479,12 +1482,12 @@ Some more text.
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mccd751d[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Merging feature into master.
-[33m5d4663e[m Modifying file2.
-[33m49e796f[m Adding file3.
-[33md02d734[m Modifying file1.
-[33mf51c712[m Adding file2.
-[33m6365179[m Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m7ac1923[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Merging feature into master.
+[33mefd779d[m Modifying file2.
+[33mde51d09[m Adding file3.
+[33mcb3f2ae[m Modifying file1.
+[33m170158a[m Adding file2.
+[33mea41f20[m Adding file1
 </code></pre></div>      </div>
     </div>
   </div>

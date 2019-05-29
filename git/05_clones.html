@@ -29,9 +29,9 @@
   "headline":
     "Clones",
   "datePublished":
-    "2019-05-29T21:44:06+00:00",
+    "2019-05-29T21:54:38+00:00",
   "dateModified":
-    "2019-05-29T21:44:06+00:00",
+    "2019-05-29T21:54:38+00:00",
   "description":
     "Clones",
   "author": {
@@ -1023,6 +1023,16 @@ initFunction(initQuery);
 
 <div class="cell code_cell">
   <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">[</span> <span class="nt">-d</span> <span class="s2">"my_clone"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span>rm <span class="nt">-rf</span> my_clone
+<span class="k">fi</span>
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone ~/my_project my_clone
 </code></pre></div>    </div>
   </div>
@@ -1054,15 +1064,12 @@ done.
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m0939f4f[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Fixing conflict in file1
-[33m5e03768[m This is an innocent change.
-[33m468a941[m Making problems in file1
-[33mccd751d[m Merging feature into master.
-[33m5d4663e[m Modifying file2.
-[33m49e796f[m Adding file3.
-[33md02d734[m Modifying file1.
-[33mf51c712[m Adding file2.
-[33m6365179[m Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m7ac1923[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Merging feature into master.
+[33mefd779d[m Modifying file2.
+[33mde51d09[m Adding file3.
+[33mcb3f2ae[m Modifying file1.
+[33m170158a[m Adding file2.
+[33mea41f20[m Adding file1
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1086,15 +1093,12 @@ done.
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m0939f4f[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Fixing conflict in file1
-[33m5e03768[m This is an innocent change.
-[33m468a941[m Making problems in file1
-[33mccd751d[m Merging feature into master.
-[33m5d4663e[m Modifying file2.
-[33m49e796f[m Adding file3.
-[33md02d734[m Modifying file1.
-[33mf51c712[m Adding file2.
-[33m6365179[m Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m7ac1923[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merging feature into master.
+[33mefd779d[m Modifying file2.
+[33mde51d09[m Adding file3.
+[33mcb3f2ae[m Modifying file1.
+[33m170158a[m Adding file2.
+[33mea41f20[m Adding file1
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1161,7 +1165,7 @@ origin	/Users/kpaul/my_project (push)
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master b2ebc59] Adding even more text to file2.
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master 4139ed8] Adding even more text to file2.
  1 file changed, 1 insertion(+)
 </code></pre></div>      </div>
     </div>
@@ -1176,16 +1180,13 @@ origin	/Users/kpaul/my_project (push)
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mb2ebc59[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Adding even more text to file2.
-[33m0939f4f[m Fixing conflict in file1
-[33m5e03768[m This is an innocent change.
-[33m468a941[m Making problems in file1
-[33mccd751d[m Merging feature into master.
-[33m5d4663e[m Modifying file2.
-[33m49e796f[m Adding file3.
-[33md02d734[m Modifying file1.
-[33mf51c712[m Adding file2.
-[33m6365179[m Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m4139ed8[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Adding even more text to file2.
+[33m7ac1923[m Merging feature into master.
+[33mefd779d[m Modifying file2.
+[33mde51d09[m Adding file3.
+[33mcb3f2ae[m Modifying file1.
+[33m170158a[m Adding file2.
+[33mea41f20[m Adding file1
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1209,15 +1210,12 @@ origin	/Users/kpaul/my_project (push)
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m0939f4f[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Fixing conflict in file1
-[33m5e03768[m This is an innocent change.
-[33m468a941[m Making problems in file1
-[33mccd751d[m Merging feature into master.
-[33m5d4663e[m Modifying file2.
-[33m49e796f[m Adding file3.
-[33md02d734[m Modifying file1.
-[33mf51c712[m Adding file2.
-[33m6365179[m Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m7ac1923[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merging feature into master.
+[33mefd779d[m Modifying file2.
+[33mde51d09[m Adding file3.
+[33mcb3f2ae[m Modifying file1.
+[33m170158a[m Adding file2.
+[33mea41f20[m Adding file1
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1241,8 +1239,8 @@ remote: Compressing objects: 100% (3/3), done.[K
 remote: Total 3 (delta 0), reused 0 (delta 0)[K
 Unpacking objects: 100% (3/3), done.
 From /Users/kpaul/my_project
-   0939f4f..b2ebc59  master     -&gt; origin/master
-Updating 0939f4f..b2ebc59
+   7ac1923..4139ed8  master     -&gt; origin/master
+Updating 7ac1923..4139ed8
 Fast-forward
  file2.txt | 1 [32m+[m
  1 file changed, 1 insertion(+)
@@ -1259,16 +1257,13 @@ Fast-forward
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mb2ebc59[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Adding even more text to file2.
-[33m0939f4f[m Fixing conflict in file1
-[33m5e03768[m This is an innocent change.
-[33m468a941[m Making problems in file1
-[33mccd751d[m Merging feature into master.
-[33m5d4663e[m Modifying file2.
-[33m49e796f[m Adding file3.
-[33md02d734[m Modifying file1.
-[33mf51c712[m Adding file2.
-[33m6365179[m Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m4139ed8[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Adding even more text to file2.
+[33m7ac1923[m Merging feature into master.
+[33mefd779d[m Modifying file2.
+[33mde51d09[m Adding file3.
+[33mcb3f2ae[m Modifying file1.
+[33m170158a[m Adding file2.
+[33mea41f20[m Adding file1
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1306,7 +1301,7 @@ Fast-forward
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master 901ebc5] Adding random text to file3.
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master 62d9405] Adding random text to file3.
  1 file changed, 1 insertion(+)
 </code></pre></div>      </div>
     </div>
@@ -1349,7 +1344,7 @@ nothing to commit, working tree clean
 Counting objects: 100% (5/5), done.
 Delta compression using up to 4 threads
 Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 290 bytes | 290.00 KiB/s, done.
+Writing objects: 100% (3/3), 291 bytes | 291.00 KiB/s, done.
 Total 3 (delta 1), reused 0 (delta 0)
 To /Users/kpaul/my_project
  * [new branch]      master -&gt; newbranch
@@ -1393,7 +1388,7 @@ To /Users/kpaul/my_project
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Updating b2ebc59..901ebc5
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Updating 4139ed8..62d9405
 Fast-forward
  file3.txt | 1 [32m+[m
  1 file changed, 1 insertion(+)
@@ -1410,7 +1405,7 @@ Fast-forward
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Deleted branch newbranch (was 901ebc5).
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Deleted branch newbranch (was 62d9405).
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1424,17 +1419,14 @@ Fast-forward
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m901ebc5[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Adding random text to file3.
-[33mb2ebc59[m Adding even more text to file2.
-[33m0939f4f[m Fixing conflict in file1
-[33m5e03768[m This is an innocent change.
-[33m468a941[m Making problems in file1
-[33mccd751d[m Merging feature into master.
-[33m5d4663e[m Modifying file2.
-[33m49e796f[m Adding file3.
-[33md02d734[m Modifying file1.
-[33mf51c712[m Adding file2.
-[33m6365179[m Adding file1
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m62d9405[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Adding random text to file3.
+[33m4139ed8[m Adding even more text to file2.
+[33m7ac1923[m Merging feature into master.
+[33mefd779d[m Modifying file2.
+[33mde51d09[m Adding file3.
+[33mcb3f2ae[m Modifying file1.
+[33m170158a[m Adding file2.
+[33mea41f20[m Adding file1
 </code></pre></div>      </div>
     </div>
   </div>
