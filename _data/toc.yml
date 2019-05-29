@@ -40,8 +40,8 @@
   not_numbered: true
   expand_sections: true
   sections:
-  - title: ...
-    url: /github/02_repositories
+  - title: Getting Started with GitHub
+    url: /github/02_getting_started_with_github
 
 - title: Search
   search: true
