@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Git &amp; GitHub Workflows</title>
-  <meta name="description" content="">
+  <title>Clones</title>
+  <meta name="description" content="Clones">
 
-  <link rel="canonical" href="https://ncar-hackathons.github.io/git-workflows/content/github/01_what_is_github.html">
+  <link rel="canonical" href="https://ncar-hackathons.github.io/git-workflows/git/05_clones.html">
   <link rel="alternate" type="application/rss+xml" title="Git & GitHub Workflows" href="https://ncar-hackathons.github.io/git-workflows/feed.xml">
 
-  <meta property="og:url"         content="https://ncar-hackathons.github.io/git-workflows/content/github/01_what_is_github.html" />
+  <meta property="og:url"         content="https://ncar-hackathons.github.io/git-workflows/git/05_clones.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Git &amp; GitHub Workflows" />
-<meta property="og:description" content="" />
+<meta property="og:title"       content="Clones" />
+<meta property="og:description" content="Clones" />
 <meta property="og:image"       content="" />
 
 
@@ -25,15 +25,15 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://ncar-hackathons.github.io/git-workflows/content/github/01_what_is_github.html",
+    "https://ncar-hackathons.github.io/git-workflows/git/05_clones.html",
   "headline":
-    "Git &amp; GitHub Workflows",
+    "Clones",
   "datePublished":
-    "2019-05-28T16:48:29+00:00",
+    "2019-05-29T16:56:02+00:00",
   "dateModified":
-    "2019-05-28T16:48:29+00:00",
+    "2019-05-29T16:56:02+00:00",
   "description":
-    "",
+    "Clones",
   "author": {
     "@type": "Person",
     "name": "The XDev Team"
@@ -188,7 +188,7 @@ initFunction(addThebelabButtonToCodeCells);
         theme: "abcdef"
       },
       kernelOptions: {
-        name: 'python3',
+        name: 'bash',
       }
     }
 </script>
@@ -805,6 +805,23 @@ initFunction(initQuery);
               </li>
               
             
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry c-sidebar__entry--active"
+                  href="/git-workflows/git/05_clones.html"
+                >
+                  
+                  Clones
+                </a>
+
+                
+                
+
+              </li>
+              
+            
           </ul>
         
       </li>
@@ -820,7 +837,7 @@ initFunction(initQuery);
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/git-workflows/github/01_what_is_github.html"
         >
           
@@ -843,10 +860,10 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/git-workflows/github/02_repositories.html"
+                  href="/git-workflows/github/02_getting_started_with_github.html"
                 >
                   
-                  ...
+                  Getting Started with GitHub
                 </a>
 
                 
@@ -893,16 +910,493 @@ initFunction(initQuery);
 </div>
 
             
+<div class="buttons">
+<a href="/git-workflows/content/git/05_clones.ipynb" download>
+<button id="interact-button-download" class="interact-button">Download</button>
+</a>
+
+
+<button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+
+
+
+
+
+
+
+
+
+
+<a href="https://binder.pangeo.io/v2/gh/ncar-hackathons/git-workflows/master?urlpath=lab/tree/content%2Fgit%2F05_clones.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/git-workflows/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+
+
+
+</div>
+
 
             <div class="c-textbook__content">
-              <p>&lt;img align=”right” height=40 src=”images/github-logo.png”&gt;</p>
+              <p><img src="../images/git-logo.png" alt="" /></p>
+<h1 id="clones">Clones</h1>
 
-<h1 id="what-is-github">What is GitHub?</h1>
+<p>As I mentioned in the start of this section, I said that Git was a <em>distributed</em> VCS, and I used the word <em>distributed</em> as opposed to <em>centralized</em> to mean that Git does not assume a centralized server hosting your Git repository.  That means that every “copy” of a Git repository is a self-sufficient repository of its own.</p>
 
+<p>However, a simple <em>copy</em> is probably not what you want.  The advantage of using a <em>distributed</em> VCS is that you can <code class="highlighter-rouge">push</code> (<code class="highlighter-rouge">pull</code>) changes to (from) another repository.  In fact, you can set a copy of one repository to <code class="highlighter-rouge">pull</code> changes from one repository and <code class="highlighter-rouge">push</code> changes to a different copy, or vice versa.</p>
+
+<p>Let’s take a look at a simple way to copy a repository using <code class="highlighter-rouge">git clone</code>.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span>
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone ~/my_project my_clone
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cloning into 'my_clone'...
+done.
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Let’s remind ourselves what the log looks like in the <code class="highlighter-rouge">my_project</code> repository.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/my_project
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--oneline</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m0939f4f[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Fixing conflict in file1
+[33m5e03768[m This is an innocent change.
+[33m468a941[m Making problems in file1
+[33mccd751d[m Merging feature into master.
+[33m5d4663e[m Modifying file2.
+[33m49e796f[m Adding file3.
+[33md02d734[m Modifying file1.
+[33mf51c712[m Adding file2.
+[33m6365179[m Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>And now let’s look at the log of our new <em>clone</em>.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/my_clone
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--oneline</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m0939f4f[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Fixing conflict in file1
+[33m5e03768[m This is an innocent change.
+[33m468a941[m Making problems in file1
+[33mccd751d[m Merging feature into master.
+[33m5d4663e[m Modifying file2.
+[33m49e796f[m Adding file3.
+[33md02d734[m Modifying file1.
+[33mf51c712[m Adding file2.
+[33m6365179[m Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Notice that there is extra information in the clone.  Just like in the <code class="highlighter-rouge">my_project</code> repository, it indicates that you are positioned at the end (<code class="highlighter-rouge">HEAD</code>) of the <code class="highlighter-rouge">master</code> branch’s history, ready to add your next commit.</p>
+
+<p>However, it also says that this position in the history corresponds to the <code class="highlighter-rouge">origin/master</code> and <code class="highlighter-rouge">origin/HEAD</code>.  What are those?</p>
+
+<h2 id="remotes">Remotes</h2>
+
+<p>That <code class="highlighter-rouge">origin</code> thing corresponds to the “original repository.”  To see what <code class="highlighter-rouge">origin</code> corresponds to, we need to use <code class="highlighter-rouge">git remote -v</code> (the <code class="highlighter-rouge">-v</code> says to be <em>verbose</em> and display more information).</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote <span class="nt">-v</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>origin	/Users/kpaul/my_project (fetch)
+origin	/Users/kpaul/my_project (push)
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>This tells you that the <code class="highlighter-rouge">origin</code> name is just a short-hand notation for the original repository <code class="highlighter-rouge">my_project</code>.  You can also see that <code class="highlighter-rouge">origin</code> is being used for both <code class="highlighter-rouge">fetch</code> (or <code class="highlighter-rouge">pull</code>) and <code class="highlighter-rouge">push</code> operations.  To understand how this works, we need to go back to our original repository and make some more commits.</p>
+
+<h2 id="pulls">Pulls</h2>
+
+<p>We are now going to go back to our original repository and add some commits to it.  Then we are going to <code class="highlighter-rouge">pull</code> those commits into our clone.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/my_project
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Even more text."</span> <span class="o">&gt;&gt;</span> file2.txt
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file2.txt
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Adding even more text to file2."</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master b2ebc59] Adding even more text to file2.
+ 1 file changed, 1 insertion(+)
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--oneline</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mb2ebc59[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Adding even more text to file2.
+[33m0939f4f[m Fixing conflict in file1
+[33m5e03768[m This is an innocent change.
+[33m468a941[m Making problems in file1
+[33mccd751d[m Merging feature into master.
+[33m5d4663e[m Modifying file2.
+[33m49e796f[m Adding file3.
+[33md02d734[m Modifying file1.
+[33mf51c712[m Adding file2.
+[33m6365179[m Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now let’s go back to our clone and see if anything changed.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/my_clone
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--oneline</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m0939f4f[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Fixing conflict in file1
+[33m5e03768[m This is an innocent change.
+[33m468a941[m Making problems in file1
+[33mccd751d[m Merging feature into master.
+[33m5d4663e[m Modifying file2.
+[33m49e796f[m Adding file3.
+[33md02d734[m Modifying file1.
+[33mf51c712[m Adding file2.
+[33m6365179[m Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Notice that things haven’t changed in our clone.  But the new commit we added to the <code class="highlighter-rouge">origin</code> repository doesn’t show up.</p>
+
+<p>To get the new commit into <code class="highlighter-rouge">my_project</code> into our clone, we need to do a <code class="highlighter-rouge">git pull</code>.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>remote: Enumerating objects: 5, done.[K
+remote: Counting objects: 100% (5/5), done.[K
+remote: Compressing objects: 100% (3/3), done.[K
+remote: Total 3 (delta 0), reused 0 (delta 0)[K
+Unpacking objects: 100% (3/3), done.
+From /Users/kpaul/my_project
+   0939f4f..b2ebc59  master     -&gt; origin/master
+Updating 0939f4f..b2ebc59
+Fast-forward
+ file2.txt | 1 [32m+[m
+ 1 file changed, 1 insertion(+)
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--oneline</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33mb2ebc59[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Adding even more text to file2.
+[33m0939f4f[m Fixing conflict in file1
+[33m5e03768[m This is an innocent change.
+[33m468a941[m Making problems in file1
+[33mccd751d[m Merging feature into master.
+[33m5d4663e[m Modifying file2.
+[33m49e796f[m Adding file3.
+[33md02d734[m Modifying file1.
+[33mf51c712[m Adding file2.
+[33m6365179[m Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now our new commit shows up and has been added to our clone.</p>
+
+<p>What happens if we add commits to our clone, though?</p>
+
+<h2 id="pushes">Pushes</h2>
+
+<p>Let’s now make a commit to our clone.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Random text"</span> <span class="o">&gt;&gt;</span> file3.txt
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file3.txt
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Adding random text to file3."</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master 901ebc5] Adding random text to file3.
+ 1 file changed, 1 insertion(+)
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Let’s check the status of our clone.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>The <code class="highlighter-rouge">master</code> branch on our clone points to the <code class="highlighter-rouge">master</code> branch on the <code class="highlighter-rouge">origin</code>, and we can see from the status message that our clone is 1 commit ahead of <code class="highlighter-rouge">origin/master</code>.  To send the commits we made to our clone to the <code class="highlighter-rouge">origin</code>, we just need to <code class="highlighter-rouge">git push</code> them. …sort of.</p>
+
+<p>Unfortunately, you can’t just do a simple <code class="highlighter-rouge">git push</code> because the <code class="highlighter-rouge">origin</code> repository currently has the <code class="highlighter-rouge">master</code> branch checked out.  So, instead, we say that we are going to <code class="highlighter-rouge">push</code> the clone’s <code class="highlighter-rouge">master</code> branch into a new branch called <code class="highlighter-rouge">newbranch</code> on the <code class="highlighter-rouge">origin</code> repository.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin master:newbranch
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 290 bytes | 290.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To /Users/kpaul/my_project
+ * [new branch]      master -&gt; newbranch
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now, if we go back to our <code class="highlighter-rouge">origin</code> repository and look at our branches, we see the following.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/my_project
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* [32mmaster[m
+  newbranch[m
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>And to get the new change into the <code class="highlighter-rouge">origin/master</code> branch, we just have to merge.</p>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git merge newbranch
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Updating b2ebc59..901ebc5
+Fast-forward
+ file3.txt | 1 [32m+[m
+ 1 file changed, 1 insertion(+)
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">-d</span> newbranch
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Deleted branch newbranch (was 901ebc5).
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--oneline</span>
+</code></pre></div>    </div>
+  </div>
+
+  <div class="output_wrapper">
+    <div class="output_subarea">
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[33m901ebc5[m[33m ([m[1;36mHEAD -&gt; [m[1;32mmaster[m[33m)[m Adding random text to file3.
+[33mb2ebc59[m Adding even more text to file2.
+[33m0939f4f[m Fixing conflict in file1
+[33m5e03768[m This is an innocent change.
+[33m468a941[m Making problems in file1
+[33mccd751d[m Merging feature into master.
+[33m5d4663e[m Modifying file2.
+[33m49e796f[m Adding file3.
+[33md02d734[m Modifying file1.
+[33mf51c712[m Adding file2.
+[33m6365179[m Adding file1
+</code></pre></div>      </div>
+    </div>
+  </div>
+</div>
+
+<p>And we can now see that the new change we made to the clone has been <em>pushed</em> up to the <code class="highlighter-rouge">origin</code> repository.</p>
+
+<h2 id="pull-requests">“Pull Requests”</h2>
+
+<p>Why couldn’t we just do a simple <code class="highlighter-rouge">git push</code> like we could do a <code class="highlighter-rouge">git pull</code>?  Why did it have to get so complicated?</p>
+
+<p>The answer to that hase to do with how Git repositories are supposed to work, and how to keep them <em>safe</em> from external <em>pushes</em> while you are doing work in them.  Image that you were doing some work in your repository, and some one else cloned your repository and tried to push changes back into yours.  You might immediately see conflicts show up and other weird behaviors that might be hard to predict.  So, to prevent that scenario from happening, Git prevents you from <em>pushing</em> changes into an existing repository if the branch into which the changes are being pushed has been checked out.</p>
+
+<p>One solution to this complication is what we did above: you can push into a new branch, and create the branch “on the fly.”  Another solution is to make sure the <code class="highlighter-rouge">origin</code> repository is a <em>bare</em> repository.  A <em>bare</em> repository is, essentially, just the <code class="highlighter-rouge">.git</code> directory in your repository directory; that is, there is no place for files to be “checked out,” so there is no branch that can ever be checked out.  (To visualize this, instead of having our <code class="highlighter-rouge">my_project/.git</code> directory structure, imagine that we simply had <code class="highlighter-rouge">my_project.git</code>.)  As long as there are no branches checked out, there will never be any weird synching behavior when someone pushes their commits to the <code class="highlighter-rouge">origin</code> repository.  (Repositories on GitHub are all <em>bare</em> repositories.)</p>
+
+<p>In general, though, it is usually much easier to just <code class="highlighter-rouge">pull</code>.  And you can set up the <code class="highlighter-rouge">origin</code> repository to have <code class="highlighter-rouge">fetch</code> capabilities from the clone repository.  Then, all you need to do is tell the owner of the <code class="highlighter-rouge">origin</code> repository that you have some changes they might want to <code class="highlighter-rouge">pull</code> into their repository.  This is called a <em>Pull Request</em>, and it is a procedure that is made incredibly easy by GitHub.</p>
 
               <nav class="c-page__nav">
   
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/git-workflows/git/04_conflicts">
+      〈 <span class="u-margin-right-tiny"></span> Conflicts
+    </a>
+  
 
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/git-workflows/github/01_what_is_github">
+      GitHub <span class="u-margin-right-tiny"></span> 〉
+    </a>
   
 </nav>
 
