@@ -29,9 +29,9 @@
   "headline":
     "Clones",
   "datePublished":
-    "2019-05-29T21:54:38+00:00",
+    "2019-05-29T22:10:56+00:00",
   "dateModified":
-    "2019-05-29T21:54:38+00:00",
+    "2019-05-29T22:10:56+00:00",
   "description":
     "Clones",
   "author": {
@@ -1028,6 +1028,16 @@ initFunction(initQuery);
 
 <div class="cell code_cell">
   <div class="input_area">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">[</span> <span class="nt">-d</span> example <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span>rm <span class="nt">-rf</span> example
+<span class="k">fi</span>
+</code></pre></div>    </div>
+  </div>
+
+</div>
+
+<div class="cell code_cell">
+  <div class="input_area">
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/kmpaul/example.git
 </code></pre></div>    </div>
   </div>
@@ -1035,11 +1045,11 @@ initFunction(initQuery);
   <div class="output_wrapper">
     <div class="output_subarea">
       <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cloning into 'example'...
-remote: Enumerating objects: 8, done.[K
-remote: Counting objects: 100% (8/8), done.[K
-remote: Compressing objects: 100% (7/7), done.[K
-remote: Total 8 (delta 1), reused 0 (delta 0), pack-reused 0[K
-Unpacking objects: 100% (8/8), done.
+remote: Enumerating objects: 11, done.[K
+remote: Counting objects: 100% (11/11), done.[K
+remote: Compressing objects: 100% (9/9), done.[K
+remote: Total 11 (delta 2), reused 4 (delta 1), pack-reused 0[K
+Unpacking objects: 100% (11/11), done.
 </code></pre></div>      </div>
     </div>
   </div>
@@ -1074,7 +1084,7 @@ git commit <span class="nt">-m</span> <span class="s2">"Emphatically stating tha
 
   <div class="output_wrapper">
     <div class="output_subarea">
-      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master c7c2c77] Emphatically stating that this is just an example.
+      <div class="output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[master 07192be] Emphatically stating that this is just an example.
  1 file changed, 1 insertion(+)
 </code></pre></div>      </div>
     </div>
@@ -1097,11 +1107,11 @@ git commit <span class="nt">-m</span> <span class="s2">"Emphatically stating tha
 Counting objects: 100% (5/5), done.
 Delta compression using up to 4 threads
 Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 326 bytes | 326.00 KiB/s, done.
+Writing objects: 100% (3/3), 331 bytes | 331.00 KiB/s, done.
 Total 3 (delta 1), reused 0 (delta 0)
 remote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
 To https://github.com/kmpaul/example.git
-   6e2df93..c7c2c77  master -&gt; master
+   c7c2c77..07192be  master -&gt; master
 </code></pre></div>      </div>
     </div>
   </div>
